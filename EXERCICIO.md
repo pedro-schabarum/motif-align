@@ -43,9 +43,20 @@ método descrito:
 - não tem índice de sementes: compara cada janela de A com todas as janelas de
   B por distância de edição, o que é força bruta e não *seed-and-extend*;
 - estende sem *gaps*, e o texto adotou o *gapped BLAST*;
-- trata o retrógrado da inversão como uma quarta transformação, que o texto não
-  menciona;
 - não tem significância (Eq. 8) nem comprimento mínimo.
 
 Ele fica como está até os módulos novos cobrirem o pipeline. Se a banca abrir o
 repositório, o código novo é o que corresponde ao texto.
+
+## Atualização (v23 do texto, 15/10)
+
+A v23 acrescentou duas coisas que estes testes ainda não cobrem:
+
+- o retrógrado da inversão (RetInv) passou a ser uma quarta forma indexada,
+  ao lado de Id, Inv e Ret (Seção 5.1.2);
+- a transposição não é mais lida só pela âncora (primeira nota): o rótulo
+  percorre os pares de eventos alinhados e quebra a correspondência em
+  segmentos com a mesma diferença de altura em graus (Seção 5.1.4).
+
+Os testes desses dois pontos entram na próxima rodada, junto com a extensão
+com *gaps* e o teste de permutação.
