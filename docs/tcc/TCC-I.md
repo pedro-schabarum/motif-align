@@ -745,7 +745,7 @@ O relatório é exportado em dois formatos (RF10). O formato CSV contém uma lin
 
 1.  Planejamento da Avaliação
 
-Esta seção reúne o planejamento da avaliação do método, que será executada no TCC II: o corpus (Seção 5.6.1), a construção dos pares de versões usados nos testes (Seção 5.6.2), os parâmetros a calibrar (Seção 5.6.3) e os critérios objetivos de avaliação (Seção 5.6.4). O planejamento é apresentado depois da modelagem porque cada um desses elementos depende do método descrito nas seções anteriores.
+Esta seção reúne o planejamento da avaliação do método, que será executada no TCC II: o corpus (Seção 5.6.1), a construção dos pares de versões usados nos testes (Seção 5.6.2), os parâmetros a calibrar (Seção 5.6.3) e os critérios objetivos de avaliação (Seção 5.6.4). O planejamento é apresentado depois da modelagem porque cada um desses elementos depende do método descrito nas seções anteriores, e é descrito com detalhe suficiente para que outro pesquisador possa reproduzir a avaliação.
 
 1.  <span id="__RefHeading___Toc9103_1503872338" class="anchor"></span>Corpus
 
@@ -797,7 +797,7 @@ Consistente com a Delimitação do problema (Seção 1.2) e com o quinto objetiv
 
 2.  <span id="__RefHeading___Toc9009_1503872338" class="anchor"></span>Considerações do Capítulo
 
-A modelagem apresentada neste capítulo traduz em software o método de alinhamento motívico fundamentado nos capítulos anteriores: uma ferramenta de linha de comando organizada em seis componentes, distribuídos em quatro camadas, dos quais o Motor de Busca e Extensão concentra a adaptação da heurística *seed-and-extend* do BLAST (Capítulo 3) ao domínio simbólico musical. O capítulo planejou também a avaliação do método: dois conjuntos de teste complementares, um de pares sintéticos com gabarito completo e outro de harmonizações diferentes de uma mesma melodia, com gabarito parcial; os sete grupos de parâmetros, a calibrar no TCC II sobre um subconjunto do corpus separado do usado na avaliação; e os critérios objetivos de avaliação, acompanhados da comparação com o Smith-Waterman como referência exata. O capítulo seguinte apresenta o cronograma que organiza essas etapas.
+A modelagem apresentada neste capítulo traduz em software o método de alinhamento motívico fundamentado nos capítulos anteriores: uma ferramenta de linha de comando organizada em seis componentes, distribuídos em quatro camadas, dos quais o Motor de Busca e Extensão concentra a adaptação da heurística *seed-and-extend* do BLAST (Capítulo 3) ao domínio simbólico musical. A modelagem situa-se no nível arquitetural e deixa em aberto os parâmetros concretos do algoritmo, como o tamanho da semente, o limiar de X-drop e os pesos de pontuação. O capítulo planejou também a avaliação do método: dois conjuntos de teste complementares, um de pares sintéticos com gabarito completo e outro de harmonizações diferentes de uma mesma melodia, com gabarito parcial; os sete grupos de parâmetros, a calibrar no TCC II sobre um subconjunto do corpus separado do usado na avaliação; e os critérios objetivos de avaliação, acompanhados da comparação com o Smith-Waterman como referência exata. O capítulo seguinte apresenta o cronograma que organiza essas etapas.
 
 6.  <span id="__RefHeading___Toc9201_1503872338" class="anchor"></span>CRONOGRAMA
 
