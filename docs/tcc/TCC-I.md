@@ -886,6 +886,8 @@ PEYERL, K.; BARROS, G. S. de. Sonata nº 1 para piano de Edino Krieger: análise
 
 PHIPSON, B.; SMYTH, G. K. Permutation p-values should never be zero: calculating exact p-values when permutations are randomly drawn. **Statistical Applications in Genetics and Molecular Biology**, v. 9, n. 1, art. 39, 2010.
 
+PRODANOV, C. C.; FREITAS, E. C. de. **Metodologia do trabalho científico**: métodos e técnicas da pesquisa e do trabalho acadêmico. 2. ed. Novo Hamburgo: Feevale, 2013.
+
 RÉTI, R. **The thematic process in music**. New York: Macmillan, 1951.
 
 SCHOENBERG, A. **Fundamentals of musical composition**. Ed. Gerald Strang, com a colaboração de Leonard Stein. Londres: Faber and Faber, 1967.
