@@ -100,9 +100,9 @@ Sumário
 
 [2 Fundamentação Teórico-Musical da Transformação Motívica](#__RefHeading___Toc1002_1503872338)
 
-[2.1 *Grundgestalt* e *developing variation*](#__RefHeading___Toc1044_1503872338)
+[2.1 *Grundgestalt* e *developing variation*](#_Toc242031503)
 
-[2.2 O processo temático em Réti e sua extensão crítica por Frisch](#__RefHeading___Toc1042_1503872338)
+[2.2 O processo temático em Réti e sua extensão crítica por Frisch](#_Toc242031504)
 
 [2.3 Percepção melódica: o modelo de implicação-realização de Narmour](#__RefHeading___Toc1040_1503872338)
 
@@ -194,7 +194,7 @@ Sumário
 
 A musicologia computacional tem se beneficiado da crescente disponibilidade de acervos de partituras em formato simbólico, como MusicXML, \*\*kern e MEI (*Music Encoding Initiative*), o que amplia as possibilidades de análise automatizada não apenas de obras isoladas, mas também das relações entre diferentes versões de uma mesma composição: edições distintas, arranjos, revisões autorais ou transcrições realizadas ao longo do tempo.
 
-Comparar duas versões de uma obra musical, no entanto, exige mais do que identificar diferenças pontuais entre símbolos notacionais. Um motivo, padrão melódico-rítmico reconhecível que funciona como unidade básica de construção temática, pode ser transposto, invertido, retrogradado ou alterado ritmicamente e ainda assim ser reconhecido como o mesmo motivo por um analista e, no caso da transposição, também por um ouvinte. Esse fenômeno é descrito na teoria musical pelo conceito de *Grundgestalt* e pela ideia de *developing variation* (SCHOENBERG, 1967), segundo a qual uma célula temática básica se desdobra e se transforma ao longo da obra sem perder sua identidade — processo que Réti (1951 apud PEYERL; BARROS, 2017) já caracterizava como subjacente à construção temática de obras do repertório tonal, e que Frisch (1984) examinou de forma sistemática em dezoito obras de Brahms.
+Comparar duas versões de uma obra musical, no entanto, exige mais do que identificar diferenças pontuais entre símbolos notacionais. Um motivo, padrão melódico-rítmico reconhecível que funciona como unidade básica de construção temática, pode ser transposto, ornamentado, alterado ritmicamente ou mesmo invertido e retrogradado e ainda assim ser reconhecido como o mesmo motivo por um analista e, no caso da transposição, também por um ouvinte. A teoria musical descreve esse fenômeno de mais de uma forma. No desenvolvimento temático de obras extensas, ele corresponde à ideia schoenberguiana de *developing variation*, a transformação contínua de uma ideia inicial ao longo da obra (ALMADA, 2008), analisada sistematicamente por Réti (1951 apud PEYERL; BARROS, 2017) e por Frisch (1984) em obras de Brahms. Entre versões de uma mesma peça, como as harmonizações de uma melodia de coral, as diferenças mais comuns são de outra natureza: transposição, notas de ornamentação acrescentadas ou suprimidas e alterações rítmicas, descritas pela teoria da harmonia e do contraponto (GOTHAM et al., 2021).
 
 Do lado computacional, encontrar correspondências entre sequências que toleram pequenas variações não é um problema novo. A bioinformática lida com isso há décadas ao comparar sequências de DNA e proteínas. O algoritmo de Needleman e Wunsch (1970) resolve o alinhamento global por programação dinâmica; o de Smith e Waterman (1981) faz o mesmo para alinhamento local. Desses trabalhos surgiu o BLAST (do inglês *Basic Local Alignment Search Tool*; ALTSCHUL et al., 1990), que popularizou a estratégia de *seed-and-extend*: localizar pequenos trechos idênticos entre duas sequências e depois estendê-los, tolerando diferenças, em vez de comparar as sequências inteiras de uma vez.
 
@@ -240,7 +240,7 @@ Desenvolver e implementar, em um protótipo de software, um método para identif
 
 <!-- -->
 
-1)  revisar a fundamentação teórico-musical sobre transformação motívica (*Grundgestalt*, *developing variation*) e os métodos computacionais de alinhamento de sequências e de descoberta de padrões musicais, situando o método proposto em relação aos trabalhos existentes;
+1)  revisar a fundamentação teórico-musical sobre identidade e variação melódica entre versões (identidade motívica sob transformação, ornamentação e contraponto) e os métodos computacionais de alinhamento de sequências e de descoberta de padrões musicais, situando o método proposto em relação aos trabalhos existentes;
 
 2)  especificar uma representação simbólica dos motivos musicais adequada à aplicação das transformações consideradas (transposição, inversão, retrogradação, variação rítmica) e à comparação entre versões;
 
@@ -274,7 +274,7 @@ O corpus é formado pelos corais a quatro vozes de J. S. Bach distribuídos com 
 
 O trabalho é executado em oito etapas, que desdobram os sete objetivos específicos (Seção 1.3.2). As etapas 1 a 4 compõem o TCC I, objeto deste documento; as etapas 5 a 8, o TCC II. O cronograma correspondente é apresentado no Capítulo 6.
 
-**Etapa 1 – Revisão bibliográfica (objetivo a; TCC I).** Levantamento e análise da fundamentação teórico-musical sobre transformação motívica (Capítulo 2), dos algoritmos de alinhamento de sequências (Capítulo 3) e dos trabalhos computacionais relacionados em música simbólica (Capítulo 4), para situar o método proposto e delimitar sua contribuição.
+**Etapa 1 – Revisão bibliográfica (objetivo a; TCC I).** Levantamento e análise da fundamentação teórico-musical sobre identidade e variação melódica entre versões (Capítulo 2), dos algoritmos de alinhamento de sequências (Capítulo 3) e dos trabalhos computacionais relacionados em música simbólica (Capítulo 4), para situar o método proposto e delimitar sua contribuição.
 
 **Etapa 2 – Especificação da representação (objetivo b; TCC I).** Definição da representação de cada voz por intervalos diatônicos, intervalos cromáticos e proporções rítmicas, com as alturas absolutas guardadas à parte, e das operações que derivam dessa representação as formas sob inversão, retrogradação e retrógrado da inversão (Seção 5.1.1).
 
@@ -292,37 +292,53 @@ O trabalho é executado em oito etapas, que desdobram os sete objetivos específ
 
 3.  <span id="_Toc242031501" class="anchor"></span>Estrutura do Trabalho
 
-Além desta introdução, o trabalho está organizado em seis capítulos. O Capítulo 2 revisa a fundamentação teórico-musical da transformação motívica, de Schoenberg a Narmour. O Capítulo 3 apresenta os fundamentos computacionais do alinhamento de sequências, do algoritmo de Needleman-Wunsch à heurística do BLAST. O Capítulo 4 examina os trabalhos relacionados em música simbólica e posiciona a contribuição deste trabalho em relação a eles. O Capítulo 5 descreve a modelagem do protótipo que adapta a heurística *seed-and-extend* ao problema de correspondência motívica entre versões e o planejamento de sua avaliação: o corpus, os conjuntos de teste, os parâmetros e os critérios de avaliação. O Capítulo 6 apresenta o cronograma do TCC I e do TCC II, e o Capítulo 7, o orçamento.
+Além desta introdução, o trabalho está organizado em seis capítulos. O Capítulo 2 revisa a fundamentação teórico-musical da variação entre versões, da noção schoenberguiana de identidade motívica à ornamentação melódica e à percepção. O Capítulo 3 apresenta os fundamentos computacionais do alinhamento de sequências, do algoritmo de Needleman-Wunsch à heurística do BLAST. O Capítulo 4 examina os trabalhos relacionados em música simbólica e posiciona a contribuição deste trabalho em relação a eles. O Capítulo 5 descreve a modelagem do protótipo que adapta a heurística *seed-and-extend* ao problema de correspondência motívica entre versões e o planejamento de sua avaliação: o corpus, os conjuntos de teste, os parâmetros e os critérios de avaliação. O Capítulo 6 apresenta o cronograma do TCC I e do TCC II, e o Capítulo 7, o orçamento.
 
-2.  <span id="__RefHeading___Toc1002_1503872338" class="anchor"></span>Fundamentação Teórico-Musical da Transformação Motívica
+2.  <span id="__RefHeading___Toc1002_1503872338" class="anchor"></span>Fundamentação Teórico-Musical da Variação entre Versões
 
-Este capítulo revisa a fundamentação teórico-musical sobre identidade e transformação motívica que sustenta a premissa central deste trabalho: a de que um motivo pode ser transposto, invertido, retrogradado ou ritmicamente alterado e, ainda assim, ser reconhecido como o mesmo motivo. Parte-se do conceito de Schoenberg de *Grundgestalt* e *developing variation*, passa-se pelo método analítico de Réti — e pela crítica que Frisch lhe dirige — e chega-se ao modelo de implicação-realização de Narmour, que desloca a discussão do plano estrutural para o plano perceptivo: em que medida, para um ouvinte, um motivo transformado ainda soa como o mesmo motivo.
+Este capítulo revisa a fundamentação teórico-musical que sustenta a premissa central deste trabalho: a de que um trecho melódico pode ser transposto, ornamentado, ritmicamente alterado ou, como generalidade, invertido e retrogradado, e ainda assim ser reconhecido como correspondente a um trecho de outra versão da mesma obra. Parte-se da noção de identidade motívica sob transformação, formulada por Schoenberg e desenvolvida por Réti e Frisch, e de seus limites para o repertório deste trabalho (Seção 2.1). Em seguida, caracteriza-se o coral a quatro vozes (Seção 2.2) e examinam-se as diferenças que de fato aparecem entre versões de um coral: a ornamentação melódica (Seção 2.3) e, como recursos do contraponto, a inversão e a retrogradação (Seção 2.4). Por fim, o modelo de implicação-realização de Narmour e os experimentos de Dowling deslocam a discussão para o plano perceptivo (Seção 2.5).
 
-Das quatro transformações consideradas neste trabalho, a transposição é a menos contestada teoricamente: nenhum dos autores revisados a trata como uma ruptura de identidade — Réti e Frisch analisam sistematicamente temas que mudam de tonalidade ao longo de uma obra sem que isso comprometa sua leitura como o mesmo tema. Já a variação rítmica, embora admitida por Schoenberg entre as modificações possíveis de um motivo (Seção 2.1), não recebe desses autores um critério que permita medir quanto de alteração rítmica um motivo tolera sem perder sua identidade; essa medida é tratada, neste trabalho, no plano computacional, na etapa de pontuação da heurística descrita no Capítulo 5.
+Das transformações consideradas, a transposição é a menos contestada: entre as fontes dos corais de Bach, uma mesma harmonização aparece registrada em tonalidades diferentes sem deixar de ser a mesma harmonização (Seção 1.4). Já a variação rítmica não recebe, dos autores revisados, um critério que permita medir quanto de alteração um trecho tolera sem perder sua correspondência com o de outra versão; essa medida é tratada, neste trabalho, no plano computacional, na etapa de pontuação da heurística descrita no Capítulo 5.
 
-<span class="mark">\[CONFERIR NO FUNDAMENTALS OF MUSICAL COMPOSITION, capítulo sobre o motivo: localizar a página em que Schoenberg admite modificações rítmicas do motivo, para citá-la na frase acima — ver também se o termo *Grundgestalt* aparece no livro ou apenas em outros escritos de Schoenberg\]</span>
+<span class="mark">\[REVISAR COM COORIENTADOR: capítulo reorganizado em 27/10/2026 a partir do apontamento do coorientador sobre a inadequação da Grundgestalt e da developing variation ao repertório dos corais de Bach. As Seções 2.2 e 2.4 dependem das referências de harmonia e contraponto indicadas por ele\]</span>
 
-<span class="mark">\[REVISAR COM COORIENTADOR: este capítulo é uma primeira proposta de fundamentação teórico-musical, redigida antes do retorno do coorientador de música sobre quais referências e ênfases ele considera adequadas — sujeito a revisão\]</span>
+1.  Identidade motívica sob transformação
 
-1.  <span id="__RefHeading___Toc1044_1503872338" class="anchor"></span>*Grundgestalt* e *developing variation*
+A ideia de que um motivo preserva sua identidade através de transformações sucessivas tem formulação clássica em Schoenberg. Com o termo *developing variation*, ele descreve a transformação contínua de uma ideia inicial, que gera novos temas e fragmentos ao longo da obra; a célula de que esse processo parte é o que chama de *Grundgestalt*, ou forma básica. Schoenberg, porém, foi pouco sistemático ao definir esses termos (ALMADA, 2008) e os formulou a partir sobretudo da obra de Brahms, a quem dedicou o ensaio *Brahms the Progressive* (SCHOENBERG, 1984 apud ALMADA, 2008).
 
-Arnold Schoenberg (1967), em *Fundamentals of Musical Composition* — coletânea de suas anotações de ensino organizada postumamente por Gerald Strang e Leonard Stein —, descreve a *Grundgestalt* (forma básica) como a célula temática elementar da qual uma composição inteira deriva. Para Schoenberg, praticamente todo elemento de uma peça bem construída — motivos, frases, seções inteiras — pode ser rastreado até essa ideia germinal, apresentada logo no início da obra.
-
-O mecanismo pelo qual a *Grundgestalt* se desdobra ao longo da peça é o que Schoenberg chama de *developing variation*: a ideia básica não é simplesmente repetida, mas continuamente variada, gerando novo material sem que a variação rompa o vínculo de identidade com a forma original. Uma variação pode alterar intervalos, ritmo, direção ou contorno do material original; o que a mantém reconhecível como desenvolvimento da mesma ideia, e não como material inteiramente novo, é a preservação de alguma relação estrutural com a *Grundgestalt*.
-
-É esse mecanismo — identidade preservada através de transformações sucessivas — que fundamenta teoricamente a premissa central deste trabalho. Onde Schoenberg descreve a transformação motívica como processo composicional interno a uma única obra, este trabalho a trata como problema computacional: dadas duas versões simbólicas de uma composição, identificar os pontos em que a mesma ideia básica, mesmo transformada, reaparece.
-
-2.  <span id="__RefHeading___Toc1042_1503872338" class="anchor"></span>O processo temático em Réti e sua extensão crítica por Frisch
-
-Rudolph Réti, em *The Thematic Process in Music* (1951), leva a intuição de Schoenberg a um método analítico sistemático. Para Réti, a diversidade temática na superfície de uma obra — os diferentes temas de uma sinfonia, por exemplo — esconde uma unidade motívica subjacente: os vários movimentos de uma obra derivariam, em sua leitura, de uma mesma ideia germinal, com o compositor preservando a substância dessa ideia por trás de uma aparência sempre renovada (RÉTI, 1951 apud ALMADA, 2008; PEYERL; BARROS, 2017). O repertório de transformações que Réti reconhece entre essas formas já inclui inversão e retrogradação, além de uma operação própria que chama de interversão: o reagrupamento das notas de uma célula em outra ordem (RÉTI, 1951, p. 68, 72 apud PEYERL; BARROS, 2017) — transformação que este trabalho não se propõe a tratar.
+Rudolph Réti, em *The Thematic Process in Music* (1951), leva intuição semelhante a um método analítico sistemático. Para Réti, a diversidade temática na superfície de uma obra — os diferentes temas de uma sinfonia, por exemplo — esconde uma unidade motívica subjacente: os vários movimentos de uma obra derivariam, em sua leitura, de uma mesma ideia germinal, com o compositor preservando a substância dessa ideia por trás de uma aparência sempre renovada (RÉTI, 1951 apud ALMADA, 2008; PEYERL; BARROS, 2017). O repertório de transformações que Réti reconhece entre essas formas já inclui inversão e retrogradação, além de uma operação própria que chama de interversão: o reagrupamento das notas de uma célula em outra ordem (RÉTI, 1951, p. 68, 72 apud PEYERL; BARROS, 2017) — transformação que este trabalho não se propõe a tratar.
 
 O método de Réti para demonstrar essa unidade, porém, foi alvo de críticas. Frisch (1984, p. 22-23 apud ALMADA, 2008) considera superficiais parte de suas análises, por levarem em conta apenas as alturas e os contornos intervalares dos temas, desvinculados de seu contexto rítmico e harmônico. Essa fragilidade se liga a outra, que é a que mais interessa a este trabalho: a decisão sobre quais notas de um tema pertencem à célula motívica básica e quais são ornamentação cabe ao próprio analista, sem um critério declarado que permita reproduzi-la.
 
 Frisch (1984), por sua vez, aplica o conceito schoenberguiano de *developing variation* a dezoito obras de Brahms, com a atenção ao contexto harmônico e rítmico que ele próprio cobra de Réti. De Réti a Frisch, portanto, uma análise intuitiva dá lugar a uma análise mais disciplinada da transformação motívica — caminho que este trabalho continua, no sentido de que os critérios de pontuação e extensão da heurística proposta (Capítulo 5) substituem o julgamento subjetivo do analista por regras explícitas e reprodutíveis.
 
+Os exemplos dessa tradição analítica, Brahms em Schoenberg e em Frisch, Mozart e Beethoven em Réti e em Almada (ALMADA, 2008), evidenciam seu limite para este trabalho. Ela descreve como uma ideia se desdobra dentro de uma obra extensa, ao longo de seções e movimentos. Os corais de Bach são peças curtas (o soprano de uma harmonização do coral da Paixão tem entre 42 e 56 notas na codificação do corpus; Seção 5.6.2), e o problema aqui investigado não é o desenvolvimento de uma ideia dentro de uma obra, mas a correspondência entre duas versões dela. Dessa tradição, este trabalho retém apenas a noção geral de identidade preservada sob transformação e o repertório de transformações que ela reconhece, incluindo a inversão e a retrogradação. A caracterização das diferenças que de fato ocorrem entre versões de um coral cabe às seções seguintes.
+
 <span class="mark">\[CONFIRMAR COM COORIENTADOR: a decisão de excluir explicitamente a interversão do escopo ainda não foi validada com a orientação. LER ANTES DA ENTREGA: Peyerl e Barros (2017, Seção 4) e Almada (2008, nota 7), que sustentam os apud desta seção; se houver acesso ao Frisch (1984, p. 22-23), trocar o apud por citação direta\]</span>
 
-3.  <span id="__RefHeading___Toc1040_1503872338" class="anchor"></span>Percepção melódica: o modelo de implicação-realização de Narmour
+2.  O coral a quatro vozes
+
+Nos corais a quatro vozes, quatro linhas melódicas (soprano, contralto, tenor e baixo) soam simultaneamente, e a melodia do coral é conduzida pelo soprano. Bach harmonizou muitas dessas melodias mais de uma vez, em obras e tonalidades diferentes, como mostra o levantamento do corpus (Seção 5.6.2). Entre duas harmonizações de uma mesma melodia, o soprano se mantém, com pequenas variantes, enquanto as vozes internas são reescritas.
+
+<span class="mark">\[A DESENVOLVER COM A REFERÊNCIA DE HARMONIA INDICADA PELO COORIENTADOR: textura do coral (melodia no soprano, papel das vozes internas e do baixo); fundamentar por que harmonizações da mesma melodia podem ser tratadas como versões dessa melodia (Seção 1.2)\]</span>
+
+3.  Ornamentação e notas melódicas
+
+Grande parte das diferenças entre versões de um coral está nas notas que ornamentam a linha melódica. Na terminologia de Gotham et al. (2021), notas de ornamentação são notas que não pertencem ao acorde que soa e que decoram notas que pertencem a ele; em geral, ocupam o meio de um gesto de três notas cujas notas externas são consonantes com o baixo. Os autores as agrupam pelo modo como se ligam às notas vizinhas: por grau conjunto, como a nota de passagem e a bordadura; por salto, como a apojatura e a escapada; e por permanência, como a suspensão, o retardo, o pedal e a antecipação.
+
+Nos corais de Bach, essas notas não são um enfeite indiferente à textura. Huron (2007), ao analisar 50 harmonizações de corais, observa que o emprego das notas de ornamentação favorece a segregação perceptiva das vozes, isto é, ajuda o ouvinte a acompanhar cada linha como independente, e que Bach tende a distribuí-las alternadamente entre as vozes.
+
+Para o problema deste trabalho, a consequência é direta. Duas versões de um coral podem diferir por notas de passagem ou bordaduras acrescentadas ou suprimidas, por uma suspensão que desloca a resolução de uma voz ou por uma nota longa dividida em notas mais curtas, sem que a linha deixe de corresponder à da outra versão. As duas versões da BWV 18.5 no corpus, que diferem nas vozes internas justamente por notas longas divididas em notas repetidas (Seção 5.6.2), são um exemplo do último caso. Cada uma dessas diferenças tem correspondente no método: a inserção ou remoção de notas é absorvida pela extensão com *gaps* (Seção 5.1.3), a alteração rítmica pela tolerância na pontuação (Equação 7), e o predomínio do movimento por grau conjunto, que torna fragmentos de escala pouco distintivos, motiva o filtro de baixa complexidade das sementes (Seção 5.1.2).
+
+<span class="mark">\[CONFERIR: volume, número e páginas de Huron (2007). LER: Gotham et al. (2021), capítulo sobre notas de ornamentação, e Huron (2007). Acrescentar Fux (na tradução de Mann) e Carvalho após a leitura\]</span>
+
+4.  Inversão e retrogradação no contraponto
+
+A inversão e a retrogradação entram neste trabalho como generalidade do método, e não como diferenças típicas entre versões de um coral (Seção 5.1.2). Sua inclusão apoia-se, por ora, no repertório de transformações reconhecido por Réti (Seção 2.1).
+
+<span class="mark">\[A DESENVOLVER COM CARVALHO (CONTRAPONTO TONAL) E FUX (NA TRADUÇÃO DE MANN): inversão como recurso do contraponto imitativo na obra de Bach; retrogradação como recurso raro, mantido apenas como generalidade\]</span>
+
+5.  <span id="__RefHeading___Toc1040_1503872338" class="anchor"></span>Percepção melódica: Narmour e Dowling
 
 Enquanto Schoenberg, Réti e Frisch tratam a transformação motívica do ponto de vista de quem compõe ou analisa uma partitura, Eugene Narmour, em *The Analysis and Cognition of Basic Melodic Structures* (1990), aborda a melodia do ponto de vista de quem ouve. Seu modelo de implicação-realização, que expande a teoria da expectativa melódica de Leonard Meyer (MEYER, 1956), propõe que a percepção de uma melodia é guiada por expectativas geradas nota a nota: cada intervalo ouvido implica, para o ouvinte, algo sobre o intervalo que deve vir a seguir.
 
@@ -330,11 +346,11 @@ O modelo parte de duas hipóteses gerais, fundamentadas em princípios da psicol
 
 A relevância desse modelo para este trabalho está em deslocar a discussão da tolerância à transformação do plano estrutural para o plano perceptivo. Schoenberg, Réti e Frisch explicam por que um compositor pode transformar um motivo sem romper sua identidade. Narmour ajuda a explicar por que certas transformações preservam, para o ouvinte, algo do original: a percepção melódica opera sobre relações, como intervalo e direção, e não sobre a identidade exata de cada nota. Essa explicação cobre bem a transposição real, que conserva todas essas relações. A transposição tonal, feita dentro da mesma tonalidade, conserva a direção e o tamanho dos passos medidos em graus da escala, mas não necessariamente o intervalo exato entre as notas.
 
-O mesmo não vale, sem ressalvas, para inversão e retrogradação. Dowling (1972) testou diretamente o reconhecimento dessas transformações em melodias curtas. Os ouvintes as identificaram acima do acaso, mas com dificuldade crescente da inversão para o retrógrado e deste para o retrógrado da inversão, e sem distinguir as transformações que preservam os intervalos exatos daquelas que preservam apenas o contorno. Esse resultado delimita o alcance da fundamentação perceptiva: ela sustenta a tolerância à transposição, mas não autoriza afirmar que inversões e retrogradações soam como o mesmo motivo. Neste trabalho, a tolerância a essas duas transformações apoia-se, por isso, no plano analítico, o de Schoenberg, Réti e Frisch, e não no perceptivo, em coerência com seu reposicionamento como generalidade do método (Capítulo 5).
+O mesmo não vale, sem ressalvas, para inversão e retrogradação. Dowling (1972) testou diretamente o reconhecimento dessas transformações em melodias curtas. Os ouvintes as identificaram acima do acaso, mas com dificuldade crescente da inversão para o retrógrado e deste para o retrógrado da inversão, e sem distinguir as transformações que preservam os intervalos exatos daquelas que preservam apenas o contorno. Esse resultado delimita o alcance da fundamentação perceptiva: ela sustenta a tolerância à transposição, mas não autoriza afirmar que inversões e retrogradações soam como o mesmo motivo. Neste trabalho, a tolerância a essas duas transformações apoia-se, por isso, no plano analítico (Seções 2.1 e 2.4), e não no perceptivo, em coerência com seu reposicionamento como generalidade do método (Capítulo 5).
 
-4.  <span id="__RefHeading___Toc1038_1503872338" class="anchor"></span>Considerações do capítulo
+6.  <span id="__RefHeading___Toc1038_1503872338" class="anchor"></span>Considerações do capítulo
 
-Este capítulo revisou três perspectivas sobre a transformação motívica: a composicional, em Schoenberg; a analítica, em Réti e na resposta crítica de Frisch; e a perceptiva, em Narmour, delimitada pelos experimentos de Dowling (1972). As duas primeiras convergem para a conclusão de que a identidade de um motivo sobrevive a transformações estruturais, do ponto de vista de quem compõe e de quem analisa. Do ponto de vista de quem ouve, essa conclusão está bem sustentada no caso da transposição, mas não no da inversão e da retrogradação. Nenhuma das três perspectivas, além disso, oferece um critério objetivo e computável para decidir quando essa identidade se mantém. É essa lacuna, situada entre a fundamentação teórico-musical deste capítulo e a fundamentação computacional do Capítulo 3, que a heurística proposta neste trabalho tenta preencher.
+Este capítulo partiu da noção de identidade motívica sob transformação, formulada por Schoenberg e desenvolvida por Réti e Frisch, e mostrou seu limite para o problema deste trabalho: ela descreve o desenvolvimento de uma ideia dentro de obras extensas, e não a correspondência entre versões de peças curtas como os corais de Bach. As diferenças que de fato aparecem entre versões de um coral (transposição, ornamentação melódica, alterações rítmicas e reescrita das vozes internas) são descritas pela teoria da harmonia e do contraponto, e cada uma delas tem correspondente nos mecanismos do método. A perspectiva perceptiva, em Narmour e Dowling, sustenta bem a tolerância à transposição, mas não à inversão e à retrogradação, que permanecem como generalidade. Nenhuma dessas perspectivas, além disso, oferece um critério objetivo e computável para decidir quando um trecho de uma versão corresponde a um trecho de outra. É essa lacuna, situada entre a fundamentação teórico-musical deste capítulo e a fundamentação computacional do Capítulo 3, que a heurística proposta neste trabalho tenta preencher.
 
 3.  <span id="__RefHeading___Toc1000_1503872338" class="anchor"></span>Alinhamento de Sequências: Fundamentos Computacionais
 
@@ -864,9 +880,13 @@ FRISCH, W. **Brahms and the principle of *developing variation***. Berkeley: Uni
 
 GIL, A. C. **Como elaborar projetos de pesquisa**. 4. ed. São Paulo: Atlas, 2002.
 
+GOTHAM, M. et al. **Open music theory**: version 2. \[S.l.: s.n.\], 2021. Disponível em: https://viva.pressbooks.pub/openmusictheory/. Acesso em: 27 out. 2026.
+
 GOTHAM, M. et al. The ‘Measure Map’: an inter-operable standard for aligning symbolic music. In: INTERNATIONAL CONFERENCE ON DIGITAL LIBRARIES FOR MUSICOLOGY (DLfM), 10., 2023, Milão. **Anais \[...\]**. New York: ACM, 2023. p. 91-99.
 
 GUSFIELD, D. **Algorithms on strings, trees, and sequences**: computer science and computational biology. Cambridge: Cambridge University Press, 1997.
+
+HURON, D. On the role of embellishment tones in the perceptual segregation of concurrent musical parts. **Empirical Musicology Review**, 2007. <span class="mark">\[CONFERIR volume, número e páginas\]</span>
 
 JANSSEN, B.; VAN KRANENBURG, P.; VOLK, A. Finding occurrences of melodic segments in folk songs employing symbolic similarity measures. **Journal of New Music Research**, v. 46, n. 2, p. 118-134, 2017.
 
@@ -889,8 +909,6 @@ PHIPSON, B.; SMYTH, G. K. Permutation p-values should never be zero: calculating
 PRODANOV, C. C.; FREITAS, E. C. de. **Metodologia do trabalho científico**: métodos e técnicas da pesquisa e do trabalho acadêmico. 2. ed. Novo Hamburgo: Feevale, 2013.
 
 RÉTI, R. **The thematic process in music**. New York: Macmillan, 1951.
-
-SCHOENBERG, A. **Fundamentals of musical composition**. Ed. Gerald Strang, com a colaboração de Leonard Stein. Londres: Faber and Faber, 1967.
 
 SMITH, T. F.; WATERMAN, M. S. Identification of common molecular subsequences. **Journal of Molecular Biology**, v. 147, n. 1, p. 195-197, 1981.
 
