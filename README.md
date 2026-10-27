@@ -110,3 +110,8 @@ objetivo, contribuição computacional trivial. Este projeto reaproveita a
 base técnica válida do trabalho anterior, mas resolve um problema diferente
 e mais bem delimitado — com o cuidado explícito de não repetir os mesmos
 erros de escopo e avaliação.
+
+## Texto do TCC
+
+- `docs/tcc/TCC-I.docx`: versão atual do texto (formato de entrega). O histórico de versões fica no git.
+- `docs/tcc/TCC-I.md`: exportação em Markdown, só para acompanhar no diff o que mudou entre versões. Regenerar com `bash scripts/exportar_texto.sh` antes de cada commit do .docx.
