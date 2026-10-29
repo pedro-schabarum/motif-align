@@ -308,7 +308,7 @@ Das transformações consideradas, a transposição é a menos contestada: entre
 
 A ideia de que um motivo preserva sua identidade através de transformações sucessivas tem formulação clássica em Schoenberg. Com o termo *developing variation*, ele descreve a transformação contínua de uma ideia inicial, que gera novos temas e fragmentos ao longo da obra; a célula de que esse processo parte é o que chama de *Grundgestalt*, ou forma básica. Schoenberg, porém, foi pouco sistemático ao definir esses termos (ALMADA, 2008) e os formulou a partir sobretudo da obra de Brahms, a quem dedicou o ensaio *Brahms the Progressive* (SCHOENBERG, 1984 apud ALMADA, 2008).
 
-Rudolph Réti, em *The Thematic Process in Music* (1951), leva intuição semelhante a um método analítico sistemático. Para Réti, a diversidade temática na superfície de uma obra — os diferentes temas de uma sinfonia, por exemplo — esconde uma unidade motívica subjacente: os vários movimentos de uma obra derivariam, em sua leitura, de uma mesma ideia germinal, com o compositor preservando a substância dessa ideia por trás de uma aparência sempre renovada (RÉTI, 1951 apud ALMADA, 2008; PEYERL; BARROS, 2017). O repertório de transformações que Réti reconhece entre essas formas já inclui inversão e retrogradação, além de uma operação própria que chama de interversão: o reagrupamento das notas de uma célula em outra ordem (RÉTI, 1951, p. 68, 72 apud PEYERL; BARROS, 2017) — transformação que este trabalho não se propõe a tratar.
+Rudolph Réti, em *The Thematic Process in Music* (1951), leva intuição semelhante a um método analítico sistemático. Para Réti, a diversidade temática na superfície de uma obra — os diferentes temas de uma sinfonia, por exemplo — esconde uma unidade motívica subjacente: os vários movimentos de uma obra derivariam, em sua leitura, de uma mesma ideia germinal, com o compositor preservando a substância dessa ideia por trás de uma aparência sempre renovada (RÉTI, 1951 apud PEYERL; BARROS, 2017; RÉTI, 1978 apud ALMADA, 2008). O repertório de transformações que Réti reconhece entre essas formas já inclui inversão e retrogradação, além de uma operação própria que chama de interversão: o reagrupamento das notas de uma célula em outra ordem (RÉTI, 1951, p. 68, 72 apud PEYERL; BARROS, 2017) — transformação que este trabalho não se propõe a tratar.
 
 O método de Réti para demonstrar essa unidade, porém, foi alvo de críticas. Frisch (1984, p. 22-23 apud ALMADA, 2008) considera superficiais parte de suas análises, por levarem em conta apenas as alturas e os contornos intervalares dos temas, desvinculados de seu contexto rítmico e harmônico. Essa fragilidade se liga a outra, que é a que mais interessa a este trabalho: a decisão sobre quais notas de um tema pertencem à célula motívica básica e quais são ornamentação cabe ao próprio analista, sem um critério declarado que permita reproduzi-la.
 
@@ -316,7 +316,7 @@ Frisch (1984), por sua vez, aplica o conceito schoenberguiano de *developing var
 
 Os exemplos dessa tradição analítica, Brahms em Schoenberg e em Frisch, Mozart e Beethoven em Réti e em Almada (ALMADA, 2008), evidenciam seu limite para este trabalho. Ela descreve como uma ideia se desdobra dentro de uma obra extensa, ao longo de seções e movimentos. Os corais de Bach são peças curtas (o soprano de uma harmonização do coral da Paixão tem entre 42 e 56 notas na codificação do corpus; Seção 5.6.2), e o problema aqui investigado não é o desenvolvimento de uma ideia dentro de uma obra, mas a correspondência entre duas versões dela. Dessa tradição, este trabalho retém apenas a noção geral de identidade preservada sob transformação e o repertório de transformações que ela reconhece, incluindo a inversão e a retrogradação. A caracterização das diferenças que de fato ocorrem entre versões de um coral cabe às seções seguintes.
 
-<span class="mark">\[CONFIRMAR COM COORIENTADOR: a decisão de excluir explicitamente a interversão do escopo ainda não foi validada com a orientação. LER ANTES DA ENTREGA: Peyerl e Barros (2017, Seção 4) e Almada (2008, nota 7), que sustentam os apud desta seção; se houver acesso ao Frisch (1984, p. 22-23), trocar o apud por citação direta\]</span>
+<span class="mark">\[CONFIRMAR COM COORIENTADOR: a decisão de excluir explicitamente a interversão do escopo ainda não foi validada com a orientação. Se houver acesso ao Frisch (1984, p. 22-23), trocar o apud por citação direta\]</span>
 
 2.  <span id="_Toc990000015" class="anchor"></span>O coral a quatro vozes
 
@@ -979,6 +979,8 @@ PHIPSON, B.; SMYTH, G. K. Permutation p-values should never be zero: calculating
 PRODANOV, C. C.; FREITAS, E. C. de. **Metodologia do trabalho científico**: métodos e técnicas da pesquisa e do trabalho acadêmico. 2. ed. Novo Hamburgo: Feevale, 2013.
 
 RÉTI, R. **The thematic process in music**. New York: Macmillan, 1951.
+
+RÉTI, R. **The thematic process in music**. Westport: Greenwood Press, 1978.
 
 SMITH, T. F.; WATERMAN, M. S. Identification of common molecular subsequences. **Journal of Molecular Biology**, v. 147, n. 1, p. 195-197, 1981.
 
