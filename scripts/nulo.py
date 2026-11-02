@@ -1,5 +1,5 @@
 """Compara dois modelos nulos para o teste de significância (Seção 5.1.4):
-(a) permutação i.i.d. da sequência comparada (o que o texto propõe);
+(a) permutação i.i.d. da sequência comparada (alternativa descartada no texto);
 (b) sopranos de outros corais, sem relação com a consulta (preservam o estilo).
 Forma Id apenas, k=4, máscara de baixa complexidade, mesmos pesos ilustrativos do Quadro 2."""
 import random, math, sys

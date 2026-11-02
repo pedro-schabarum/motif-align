@@ -1,7 +1,7 @@
 """
 levantamento_corpus.py — Levantamento do corpus de corais de Bach no music21.
 
-Reproduz as contagens citadas no TCC (Seções 6.2 e 6.3):
+Reproduz as contagens citadas no TCC (Seções 5.6.1 e 5.6.2):
 
   1. quantos arquivos do music21 são atribuídos a Bach;
   2. quantos deles, em MusicXML, são corais a quatro vozes;
