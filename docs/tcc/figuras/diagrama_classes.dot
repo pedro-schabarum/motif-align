@@ -1,0 +1,80 @@
+// Figura 5 do TCC I — diagrama de classes do protótipo.
+// Gerar: dot -Tpng -Gdpi=300 diagrama_classes.dot -o diagrama_classes.png
+digraph classes {
+  graph [rankdir=TB, nodesep=0.6, ranksep=0.9, fontname="DejaVu Sans", bgcolor="white"];
+  node  [shape=plain, fontname="DejaVu Sans", fontsize=14];
+  edge  [color="#5B6B7D", fontcolor="#3D5A78", fontname="DejaVu Sans", fontsize=13, arrowsize=0.8];
+
+  Alinhador [label=<
+<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="5" COLOR="#B5652B">
+<TR><TD BGCOLOR="#F5E1D3"><B>Alinhador</B></TD></TR>
+<TR><TD ALIGN="LEFT" BALIGN="LEFT">parametros: θ<BR/>(k, φ, γ, ρ, g, X, P, p*, ℓmin, σ)</TD></TR>
+<TR><TD ALIGN="LEFT" BALIGN="LEFT">+ buscar(I, S, S′): Alinhamento[*]<BR/>+ estender(T(S), S′, h): Alinhamento<BR/>+ valor_p(alinhamento, nulos): float</TD></TR>
+</TABLE>>];
+
+  IndiceSementes [label=<
+<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="5" COLOR="#3D5A78">
+<TR><TD BGCOLOR="#DDE3EA"><B>IndiceSementes</B></TD></TR>
+<TR><TD ALIGN="LEFT" BALIGN="LEFT">k: int<BR/>tabela: dict[semente → (i, T)[*]]</TD></TR>
+<TR><TD ALIGN="LEFT" BALIGN="LEFT">+ construir(S, k)<BR/>+ consultar(w): (i, T)[*]</TD></TR>
+</TABLE>>];
+
+  ModeloNulo [label=<
+<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="5" COLOR="#3D5A78">
+<TR><TD BGCOLOR="#DDE3EA"><B>ModeloNulo</B></TD></TR>
+<TR><TD ALIGN="LEFT" BALIGN="LEFT">vozes: SequenciaVoz[P]<BR/>maximos: dict[T → float[P]]</TD></TR>
+<TR><TD ALIGN="LEFT" BALIGN="LEFT">+ sortear(corpus, P, σ)</TD></TR>
+</TABLE>>];
+
+  Hit [label=<
+<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="5" COLOR="#3D5A78">
+<TR><TD BGCOLOR="#DDE3EA"><B>Hit</B></TD></TR>
+<TR><TD ALIGN="LEFT" BALIGN="LEFT">i: int<BR/>j: int<BR/>T: {Id, Inv, Ret, RetInv}</TD></TR>
+</TABLE>>];
+
+  SequenciaVoz [label=<
+<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="5" COLOR="#3D5A78">
+<TR><TD BGCOLOR="#DDE3EA"><B>SequenciaVoz</B></TD></TR>
+<TR><TD ALIGN="LEFT" BALIGN="LEFT">voz: str<BR/>ancora: Altura<BR/>x: list[(δ, c, r)]</TD></TR>
+<TR><TD ALIGN="LEFT" BALIGN="LEFT">+ inv(): SequenciaVoz<BR/>+ ret(): SequenciaVoz</TD></TR>
+</TABLE>>];
+
+  Relatorio [label=<
+<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="5" COLOR="#3D5A78">
+<TR><TD BGCOLOR="#DDE3EA"><B>Relatorio</B></TD></TR>
+<TR><TD ALIGN="LEFT" BALIGN="LEFT">correspondencias: list</TD></TR>
+<TR><TD ALIGN="LEFT" BALIGN="LEFT">+ exportar(formato)</TD></TR>
+</TABLE>>];
+
+  Alinhamento [label=<
+<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="5" COLOR="#3D5A78">
+<TR><TD BGCOLOR="#DDE3EA"><B>Alinhamento</B></TD></TR>
+<TR><TD ALIGN="LEFT" BALIGN="LEFT">forma: T<BR/>inicio_a, fim_a: int<BR/>inicio_b, fim_b: int<BR/>escore: float<BR/>gaps: int</TD></TR>
+</TABLE>>];
+
+  Evento [label=<
+<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="5" COLOR="#3D5A78">
+<TR><TD BGCOLOR="#DDE3EA"><B>Evento</B></TD></TR>
+<TR><TD ALIGN="LEFT" BALIGN="LEFT">altura: Altura<BR/>duracao: float</TD></TR>
+</TABLE>>];
+
+  Correspondencia [label=<
+<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0" CELLPADDING="5" COLOR="#B5652B">
+<TR><TD BGCOLOR="#F5E1D3"><B>Correspondencia</B></TD></TR>
+<TR><TD ALIGN="LEFT" BALIGN="LEFT">voz_a, voz_b: str<BR/>local_a, local_b: (compasso, posição)<BR/>transformacao: str<BR/>transposicao: {real, diatônica} e intervalo<BR/>escore: float<BR/>valor_p: float</TD></TR>
+</TABLE>>];
+
+  { rank=same; IndiceSementes; ModeloNulo; Hit; }
+  { rank=same; SequenciaVoz; Relatorio; Alinhamento; }
+
+  Alinhador -> IndiceSementes [label="usa"];
+  Alinhador -> SequenciaVoz   [label="compara 2"];
+  Alinhador -> ModeloNulo     [label="usa"];
+  Alinhador -> Hit            [label="gera"];
+  IndiceSementes -> SequenciaVoz [label="indexa", style=dashed];
+  ModeloNulo -> SequenciaVoz  [label="contém", dir=back, arrowtail=odiamond];
+  Hit -> Alinhamento          [label="estende-se em"];
+  SequenciaVoz -> Evento      [label="1..*", dir=back, arrowtail=diamond, arrowhead=none];
+  Relatorio -> Correspondencia [label="0..*", dir=back, arrowtail=odiamond, arrowhead=none];
+  Alinhamento -> Correspondencia [label="rotulado como", style=dashed];
+}
