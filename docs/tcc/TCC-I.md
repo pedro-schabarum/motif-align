@@ -28,9 +28,9 @@ Relatório Parcial do Trabalho de Conclusão de Curso submetido à Universidade 
 
 Pedro guilherme merisio schabarum
 
-Orientadora: Prof.ª Monica Tissiani De Toni Pereira, <span class="mark">\[titulação\]</span>
+Orientadora: Prof.ª Ma. Monica Tissiani De Toni Pereira
 
-Coorientador: Prof. Jakson Kreuz, <span class="mark">\[titulação\]</span>
+Coorientador: Prof. Esp. Jakson Kreuz
 
 CHAPECÓ, novembro de 2026
 
@@ -76,6 +76,8 @@ BWV - *Bach-Werke-Verzeichnis*
 
 CSV - *Comma-Separated Values*
 
+IA - Inteligência Artificial
+
 JKUPDD - *Johannes Kepler University Patterns Development Database*
 
 JSON - *JavaScript Object Notation*
@@ -118,7 +120,9 @@ Sumário
 
 [1.5 Procedimentos Metodológicos](#_Toc990000011)
 
-[1.6 Estrutura do Trabalho](#_Toc990000012)
+[1.6 Uso de Ferramentas de Inteligência Artificial](#_Toc990000099)
+
+[1.7 Estrutura do Trabalho](#_Toc990000012)
 
 [2 Fundamentação Teórico-Musical da Variação entre Versões](#_Toc990000013)
 
@@ -240,7 +244,7 @@ A título de exemplo, a mesma nota — dó central, semínima — é representad
 
 1.  <span id="_Toc990000006" class="anchor"></span>Representação da mesma nota (dó central, semínima) em MusicXML, \*\*kern e MEI
 
-Fonte: elaborada pelo autor (2026).
+Fonte: elaborada pelo autor com uso de IA (2026).
 
 O método deve tolerar, no nível motívico, as diferenças mais prováveis entre versões de uma mesma obra: transposição, variação rítmica e inserção ou remoção de notas. Como generalidade, deve tolerar também inversão e retrogradação, transformações relevantes quando uma versão é um arranjo ou uma reelaboração da outra, e não uma edição. Nesta etapa do trabalho, prioriza-se a fundamentação teórica, a especificação da representação simbólica dos motivos e o desenho da heurística de alinhamento; a estratégia concreta de construção dos pares de versões utilizados nos testes — seja a partir de variantes documentadas na tradição de fontes dos corais, de transformações geradas programaticamente sobre o corpus, de harmonizações diferentes de uma mesma melodia presentes no próprio corpus, ou de uma combinação dessas fontes — é detalhada na Seção 5.6.2. Para os fins deste trabalho, o termo *versão* abrange tanto edições e fontes distintas de uma mesma obra quanto harmonizações diferentes, feitas pelo próprio Bach, de uma mesma melodia de coral. A segunda acepção é mais ampla do que a noção editorial de versão, mas é a que o corpus oferece em maior quantidade. Ela é declarada explicitamente para que os resultados obtidos sobre esses pares sejam lidos nessa chave.
 
@@ -306,7 +310,17 @@ O trabalho é executado em oito etapas, que desdobram os sete objetivos específ
 
 **Etapa 8 – Avaliação preliminar e análise (objetivo g; TCC II).** Execução do método e das duas referências sobre o subconjunto de avaliação, cálculo dos critérios da Seção 5.6.4 — no conjunto e por tipo de transformação — e análise dos erros, com atenção às correspondências não encontradas e às espúrias, para identificar limitações do método.
 
-3.  <span id="_Toc990000012" class="anchor"></span>Estrutura do Trabalho
+3.  <span id="_Toc990000099" class="anchor"></span>Uso de Ferramentas de Inteligência Artificial
+
+Este trabalho usou o Claude, assistente de inteligência artificial (IA) generativa da Anthropic (ANTHROPIC, 2026), acessado pela plataforma claude.ai durante o desenvolvimento do TCC I. Nenhuma outra ferramenta de IA generativa foi usada. O uso se deu em cinco atividades, descritas a seguir com os pontos do texto em que se aplicam.
+
+A primeira foi a redação e a revisão do texto, em todos os capítulos: redação de versões de trechos a partir das decisões e anotações do autor, revisão de estilo e de coesão, corte de repetições e reorganização de seções. A segunda foi o apoio à pesquisa bibliográfica: busca de trabalhos relacionados e conferência da existência e dos dados de cada referência (autoria, ano, título, veículo e páginas) nas fontes originais ou em bases de indexação.
+
+A terceira foi a discussão do método e da avaliação (Capítulo 5). A ferramenta sugeriu alternativas para decisões de desenho, como a pontuação de substituição estimada no corpus e as regras de acerto da Seção 5.6.4, e fez leituras críticas do texto no papel de avaliador externo. A quarta foi a escrita dos scripts em Python que levantam os dados do corpus citados no texto, como as contagens do corpus, as frequências de intervalos, os pares de fontes do Quadro 7 e o exemplo de alinhamento do Quadro 2. Esses scripts estão versionados no repositório do trabalho, disponível em https://github.com/pedro-schabarum/motif-align. A quinta foi a produção das figuras, geradas por código com as bibliotecas matplotlib e Graphviz, e a montagem dos quadros. Por isso, a fonte de todas as figuras e quadros indica que foram elaborados pelo autor com uso de IA.
+
+As decisões de escopo, de método e de avaliação são do autor. Cada sugestão da ferramenta foi aceita, modificada ou descartada por ele e submetida à orientação. O conteúdo produzido com a ferramenta foi validado de três formas: leitura e revisão de todo o texto pelo autor; conferência de cada referência em fonte externa à ferramenta, sem aceitar dados bibliográficos informados apenas por ela; e reexecução dos scripts, de modo que os números citados no texto correspondem à saída deles. A responsabilidade pelo conteúdo final, inclusive por eventuais erros, é do autor.
+
+4.  <span id="_Toc990000012" class="anchor"></span>Estrutura do Trabalho
 
 Além desta introdução, o trabalho está organizado em seis capítulos. O Capítulo 2 revisa a fundamentação teórico-musical da variação entre versões, da noção schoenberguiana de identidade motívica à ornamentação melódica e à percepção. O Capítulo 3 apresenta os fundamentos computacionais do alinhamento de sequências, do algoritmo de Needleman-Wunsch à heurística do BLAST. O Capítulo 4 examina os trabalhos relacionados em música simbólica e posiciona a contribuição deste trabalho em relação a eles. O Capítulo 5 descreve a modelagem do protótipo que adapta a heurística *seed-and-extend* ao problema de correspondência motívica entre versões e o planejamento de sua avaliação: o corpus, os conjuntos de teste, os parâmetros e os critérios de avaliação. O Capítulo 6 apresenta o cronograma do TCC I e do TCC II, e o Capítulo 7, o orçamento.
 
@@ -404,7 +418,7 @@ Preenchida a matriz inteira, um processo de retrocesso (*traceback*) percorre o 
 
 2.  <span id="_Toc990000023" class="anchor"></span>Matriz de programação dinâmica de Needleman-Wunsch para as sequências A = ACGT e B = AGT: cálculo de uma célula a partir da diagonal, de cima e da esquerda, e caminho de *traceback* até a origem
 
-Fonte: elaborada pelo autor (2026).
+Fonte: elaborada pelo autor com uso de IA (2026).
 
 Na Figura 2, a sequência A = ACGT está disposta nas colunas e a sequência B = AGT, nas linhas. A pontuação segue a Equação 1, com s(aᵢ, bⱼ) = +1 quando os dois elementos são iguais (acerto), s(aᵢ, bⱼ) = −1 quando são diferentes (erro) e penalidade g = 2 por espaço. A primeira linha e a primeira coluna recebem os valores F(0, j) = −2j e F(i, 0) = −2i, que correspondem a alinhar um prefixo de uma das sequências inteiramente contra espaços. A célula destacada, que cruza o G da sequência A com o G da sequência B, exemplifica o cálculo das demais: pela diagonal, soma-se o acerto G–G ao valor da célula diagonal (−1 + 1 = 0); de cima, subtrai-se a penalidade de espaço do valor da célula superior (−3 − 2 = −5); da esquerda, subtrai-se a mesma penalidade do valor da célula à esquerda (0 − 2 = −2). Prevalece o maior dos três valores, 0.
 
@@ -504,7 +518,7 @@ Colocados lado a lado, os trabalhos revisados delimitam por exclusão o problema
 | BOUNTOURIDIS et al. (2017)                                  | Melodia e coleção                  | Classificação de melodias                                      | Variação entre melodias de uma mesma família                                     | Indexação do BLAST                                   |
 | **Este trabalho**                                           | **Duas versões de uma obra**       | **Correspondências localizadas, com tipo de transformação**    | **Transposição, variação rítmica, inserção e deleção; inversão e retrogradação** | **Seed-and-extend com *gaps* e variantes indexadas** |
 
-Fonte: elaborada pelo autor (2026).
+Fonte: elaborado pelo autor com uso de IA (2026).
 
 A contribuição deste trabalho, portanto, não está em nenhum desses elementos isolados, e sim em uma combinação que, na literatura consultada, nenhum dos trabalhos revisados reúne. O primeiro elemento, e o principal, é a comparação entre versões de uma mesma obra com saída na forma de um mapeamento: correspondências localizadas em ambas as versões, segmentadas e rotuladas pelo tipo de transformação, e não uma medida global de semelhança ou uma lista de ocorrências de um padrão de consulta. O segundo são critérios objetivos de avaliação desse mapeamento, calculados contra um gabarito e comparados a duas referências, uma exata e outra deliberadamente simples (Seção 5.6.4). O terceiro é a heurística *seed-and-extend* que produz o mapeamento, com a invariância à transposição obtida pela própria representação e, como generalidade, a indexação das variantes de cada semente sob inversão e retrogradação. É nessa combinação que se situa a heurística apresentada no Capítulo 5.
 
@@ -524,7 +538,7 @@ Internamente, o protótipo organiza o processamento em quatro etapas sequenciais
 
 1.  <span id="_Toc990000038" class="anchor"></span>Representação simbólica
 
-A primeira etapa, de leitura e representação, usa o music21 (CUTHBERT; ARIZA, 2010) para carregar cada versão MusicXML e extrair, de cada voz, uma sequência de eventos musicais, cada um formado por um par de altura e duração. Essa sequência é convertida para uma representação baseada em intervalos melódicos diatônicos e proporções rítmicas, e não em alturas absolutas. Os intervalos são medidos em graus da escala, e não em semitons, por causa da natureza tonal do corpus. A transposição entre versões pode ser real ou diatônica (Seção 2.4), e só a medida em graus trata as duas da mesma forma. No repertório tonal, a inversão melódica também é em geral diatônica (a chamada inversão tonal), isto é, segue a escala da tonalidade, e não a qualidade exata de cada intervalo (HUTCHINSON, 2017); Linsley (2008) descreve as inversões nas suítes para teclado de Bach justamente a partir de um eixo definido em grau da escala. <span class="mark">\[LER: Linsley (2008) — indicar a página\]</span> Essa é também a representação adotada por Zhu et al. (2026). A escolha já embute parte da tolerância a transformações exigida pelo problema, porque uma passagem transposta produz a mesma sequência de intervalos que o original. As demais transformações correspondem a operações simples sobre essa sequência. A inversão equivale a trocar o sinal de cada intervalo. A retrogradação equivale a inverter a ordem da sequência e, ao mesmo tempo, trocar o sinal de cada intervalo, já que percorrer as alturas de trás para frente também inverte a direção de cada passo; as proporções rítmicas, no retrógrado, são lidas em ordem inversa e substituídas por suas recíprocas. Por exemplo, as alturas dó–ré–mi–sol geram os passos diatônicos (+1, +1, +2); seu retrógrado, sol–mi–ré–dó, gera (−2, −1, −1), e não (+2, +1, +1), que seria o retrógrado da inversão.
+A primeira etapa, de leitura e representação, usa o music21 (CUTHBERT; ARIZA, 2010) para carregar cada versão MusicXML e extrair, de cada voz, uma sequência de eventos musicais, cada um formado por um par de altura e duração. Essa sequência é convertida para uma representação baseada em intervalos melódicos diatônicos e proporções rítmicas, e não em alturas absolutas. Os intervalos são medidos em graus da escala, e não em semitons, por causa da natureza tonal do corpus. A transposição entre versões pode ser real ou diatônica (Seção 2.4), e só a medida em graus trata as duas da mesma forma. No repertório tonal, a inversão melódica também é em geral diatônica (a chamada inversão tonal), isto é, segue a escala da tonalidade, e não a qualidade exata de cada intervalo (HUTCHINSON, 2017); Linsley (2008) descreve as inversões nas suítes para teclado de Bach a partir de um eixo de inversão definido em grau da escala. Essa é também a representação adotada por Zhu et al. (2026). A escolha já embute parte da tolerância a transformações exigida pelo problema, porque uma passagem transposta produz a mesma sequência de intervalos que o original. As demais transformações correspondem a operações simples sobre essa sequência. A inversão equivale a trocar o sinal de cada intervalo. A retrogradação equivale a inverter a ordem da sequência e, ao mesmo tempo, trocar o sinal de cada intervalo, já que percorrer as alturas de trás para frente também inverte a direção de cada passo; as proporções rítmicas, no retrógrado, são lidas em ordem inversa e substituídas por suas recíprocas. Por exemplo, as alturas dó–ré–mi–sol geram os passos diatônicos (+1, +1, +2); seu retrógrado, sol–mi–ré–dó, gera (−2, −1, −1), e não (+2, +1, +1), que seria o retrógrado da inversão.
 
 Formalmente, cada voz é uma sequência de eventos V = (e₁, …, eₙ), com eₖ = (pₖ, dₖ), em que pₖ é a altura e dₖ a duração. Sua representação é a sequência S = (x₁, …, xₙ₋₁), definida pela Equação 4. Nela, δₖ é o intervalo diatônico, medido em graus da escala a partir do número diatônico absoluto de cada nota, grau(p), que combina o nome da nota e sua oitava sem referência à tonalidade (no music21, o atributo diatonicNoteNum); cₖ é o intervalo em semitons; e rₖ é a proporção rítmica entre eventos consecutivos. As alturas absolutas pₖ, que essa representação descarta, são guardadas à parte, junto com a localização de cada evento na partitura: não participam da busca nem da pontuação, mas são usadas na rotulagem das transformações (Seção 5.1.4).
 
@@ -580,7 +594,7 @@ O Quadro 2 ilustra as etapas sobre um par real do segundo conjunto de teste (Se�
 | **Rótulo**                    | Transposição real de uma segunda maior descendente (−2 semitons, diferença de altura comum aos pares de eventos alinhados; Seção 5.1.4). Os trechos em que as proporções rítmicas divergem formam segmentos próprios, rotulados também como variação rítmica. No trecho divergente, três pares ficam a uma segunda menor acima, e não abaixo; por serem menos que ℓmin, são absorvidos como divergência local, e não rotulados como uma segunda transposição. |
 | **Melhor alinhamento do par** | Outro *hit*, na posição 14 de BWV 244.15 e 16 de BWV 244.62, estendido nas duas direções, cobre as duas melodias inteiras (42 e 45 notas), com escore 95,0 e o mesmo rótulo de transposição real de uma segunda maior descendente, desdobrado em segmentos conforme o ritmo coincida ou divirja. É o alinhamento que o filtro de significância reporta (Seção 5.1.4).                                                                                         |
 
-Fonte: elaborada pelo autor (2026).
+Fonte: elaborado pelo autor com uso de IA (2026).
 
 1.  <span id="_Toc990000042" class="anchor"></span>Filtragem e definição operacional de motivo
 
@@ -696,7 +710,7 @@ O Quadro 3 apresenta o pseudocódigo do método completo, reunindo as quatro eta
 </tbody>
 </table>
 
-Fonte: elaborada pelo autor (2026).
+Fonte: elaborado pelo autor com uso de IA (2026).
 
 Essa estimativa não pretende justificar a heurística, possibilidade já descartada na Seção 5.1.5 para sequências do tamanho de um coral. Ela tem dois propósitos: verificar que o teste de significância, que repete a busca P vezes, é compatível com o RNF03 e indicar em que cenário a diferença em relação ao alinhamento exato passa a pesar. Sejam n e m os tamanhos das duas vozes, k o tamanho da semente, h o número de *hits* e L·w a área da matriz efetivamente explorada em cada extensão, limitada pelo X-drop. A construção do índice custa O(nk), com quatro formas por semente. A busca custa O(mk) em consultas ao índice, mais O(h·L·w) em extensões; a condição da linha 5 da função Busca evita estender repetidamente *hits* que já pertencem a um alinhamento encontrado. O custo por par de vozes é, portanto, O(nk + (P + 1)(mk + h·L·w)), multiplicado pelos 16 pares. O fator P + 1 domina essa expressão: com o ponto de partida P = 499 (Seção 5.6.3), a busca é executada quinhentas vezes por par de vozes, e é ele, mais do que o tamanho das vozes, que decide se o RNF03 é atendido. O Smith-Waterman iterativo, com R rodadas de mascaramento, custa O((P + 1)·R·nm) por par, e o mesmo fator P + 1 se aplica a ele. A diferença assintótica entre as duas abordagens só passa a pesar na busca de um motivo contra o corpus inteiro, de tamanho total N: o custo do alinhamento exato cresce com O(n·N), enquanto o da heurística depende de N apenas pela varredura de sementes, O(Nk), mais as extensões em torno dos *hits*.
 
@@ -750,7 +764,7 @@ O protótipo possui um único ator, o **Pesquisador/Editor**, que interage com o
 
 3.  <span id="_Toc990000049" class="anchor"></span>Diagrama de caso de uso do protótipo de alinhamento motívico
 
-Fonte: elaborada pelo autor (2026).
+Fonte: elaborada pelo autor com uso de IA (2026).
 
 4.  <span id="_Toc990000050" class="anchor"></span>Descrição dos casos de uso do protótipo
 
@@ -767,7 +781,7 @@ Fonte: elaborada pelo autor (2026).
 | UC05 – Exportar relatório                      | Extensão de UC04: grava o relatório nos formatos CSV e JSON (Seção 5.5).                                                                                                                             | RF10                                      |
 | UC06 – Avaliar resultados com gabarito         | O ator fornece o gabarito de um par de teste (Seção 5.6.2); o sistema calcula os critérios da Seção 5.6.4 para o método e para as duas referências de comparação.                                    | RF11, RF12                                |
 
-Fonte: elaborada pelo autor (2026).
+Fonte: elaborado pelo autor com uso de IA (2026).
 
 1.  <span id="_Toc990000051" class="anchor"></span>Projeto do Protótipo
 
@@ -793,7 +807,7 @@ A integração entre as camadas segue um fluxo único e unidirecional: cada comp
 
 4.  <span id="_Toc990000052" class="anchor"></span>Diagrama de componentes do protótipo, organizado em camadas, com os dados trocados entre os componentes
 
-Fonte: elaborada pelo autor (2026).
+Fonte: elaborada pelo autor com uso de IA (2026).
 
 5.  <span id="_Toc990000053" class="anchor"></span>Interfaces entre os componentes do protótipo
 
@@ -806,7 +820,7 @@ Fonte: elaborada pelo autor (2026).
 | Motor de Busca e Extensão         | IndiceSementes; SequenciaVoz das duas versões; φ, γ, ρ, g e X                                               | Hits e Alinhamentos (trechos em A e B, escore e gaps) para cada um dos 16 pares de vozes; escores máximos contra o modelo nulo     |
 | Pontuador e Gerador de Relatório  | Alinhamentos; escores máximos obtidos contra as P vozes do modelo nulo; p\* e ℓmin; localização dos eventos | Correspondencias com valor-p, rótulo de transformação e localização, reunidas no Relatorio e exportadas em CSV e JSON              |
 
-Fonte: elaborada pelo autor (2026).
+Fonte: elaborado pelo autor com uso de IA (2026).
 
 O diagrama de classes da Figura 5 detalha as estruturas de dados que implementam esses componentes: a representação de cada voz (SequenciaVoz, composta de objetos Evento), o índice de sementes, os hits e alinhamentos produzidos pela classe Alinhador e as correspondências que compõem o relatório final.
 
@@ -814,7 +828,7 @@ O diagrama de classes da Figura 5 detalha as estruturas de dados que implementam
 
 5.  <span id="_Toc990000054" class="anchor"></span>Diagrama de classes do protótipo de alinhamento motívico
 
-Fonte: elaborada pelo autor (2026).
+Fonte: elaborada pelo autor com uso de IA (2026).
 
 1.  <span id="_Toc990000055" class="anchor"></span>Formato de Saída dos Resultados
 
@@ -830,7 +844,7 @@ O relatório produzido pelo protótipo organiza cada correspondência motívica 
 | Transformação          | Tipo identificado: transposição, inversão, retrogradação, variação rítmica ou combinação, com a indicação de transposição real ou diatônica e o respectivo intervalo, quando aplicável; uma correspondência com trechos de transformações diferentes ocupa uma linha por segmento |
 | Pontuação              | Escore de alinhamento resultante da etapa de extensão e valor-p empírico (Seção 5.1.4)                                                                                                                                                                                            |
 
-Fonte: elaborada pelo autor (2026).
+Fonte: elaborado pelo autor com uso de IA (2026).
 
 O relatório é exportado em dois formatos (RF10). O formato CSV contém uma linha por segmento, com as colunas do Quadro 6, e destina-se à inspeção em planilhas e à análise estatística dos resultados. O formato JSON preserva a estrutura completa de cada correspondência, incluindo o alinhamento evento a evento e o valor-p, e registra os parâmetros θ usados na execução, o que o torna adequado ao consumo por outros programas e à reprodução dos resultados (RNF02).
 
@@ -869,7 +883,7 @@ O terceiro conjunto é formado por pares de fontes: arquivos do corpus que codif
 | BWV 274 × BWV 62.6                     | Mesma tonalidade; um trecho divergente no tenor e um no baixo                                                                                     |
 | BWV 197.7 (arquivo 197.7-a) × BWV 398  | Idênticos nas quatro vozes, em altura e ritmo                                                                                                     |
 
-Fonte: elaborada pelo autor (2026).
+Fonte: elaborado pelo autor com uso de IA (2026).
 
 Os dois arquivos do BWV 18.5, quinto movimento da cantata BWV 18, correspondem às versões de Weimar e de Leipzig da cantata, que foi transposta para lá menor na apresentação em Leipzig (DAHN, 2019). Suas notas divididas em notas repetidas acrescentam intervalos nulos (δ = 0), que o alinhamento absorve como espaços puros (Seção 5.1.3); o par testa em particular esse tratamento.
 
@@ -938,7 +952,7 @@ O TCC I tem entrega prevista para 11 de novembro de 2026. Quatro reuniões de or
 | Formatação final e entrega do relatório                                    |                |              |              |              |              |
 | Apresentação do TCC I                                                      |                |              |              |              |              |
 
-Fonte: elaborada pelo autor (2026).
+Fonte: elaborado pelo autor com uso de IA (2026).
 
 1.  <span id="_Toc990000066" class="anchor"></span>Cronograma do TCC II
 
@@ -957,7 +971,7 @@ O TCC II abrange a implementação do protótipo, a construção dos conjuntos d
 | Entrega da monografia                                      |                |              |              |              |              |              |
 | Defesa                                                     |                |              |              |              |              |              |
 
-Fonte: elaborada pelo autor (2026).
+Fonte: elaborado pelo autor com uso de IA (2026).
 
 7.  <span id="_Toc990000068" class="anchor"></span>ORÇAMENTO
 
@@ -972,6 +986,8 @@ ALTSCHUL, S. F. et al. Basic local alignment search tool. **Journal of Molecular
 ALTSCHUL, S. F. et al. Gapped BLAST and PSI-BLAST: a new generation of protein database search programs. **Nucleic Acids Research**, v. 25, n. 17, p. 3389-3402, 1997.
 
 ALTSCHUL, S. F.; ERICKSON, B. W. Significance of nucleotide sequence alignments: a method for random sequence permutation that preserves dinucleotide and codon usage. **Molecular Biology and Evolution**, v. 2, n. 6, p. 526-538, 1985.
+
+ANTHROPIC. **Claude**. \[S.l.\]: Anthropic, 2026. Assistente de inteligência artificial generativa. Disponível em: https://claude.ai. Acesso em: 6 nov. 2026.
 
 BOUNTOURIDIS, D. et al. Melody retrieval and classification using biologically-inspired techniques. In: CORREIA, J.; CIESIELSKI, V.; LIAPIS, A. (ed.). **Computational intelligence in music, sound, art and design**: EvoMUSART 2017. Cham: Springer, 2017. p. 49-64. (Lecture Notes in Computer Science, v. 10198).
 
