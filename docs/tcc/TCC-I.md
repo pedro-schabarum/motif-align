@@ -14,6 +14,8 @@ Pedro guilherme merisio schabarum
 
 CHAPECÓ, novembro de 2026
 
+Universidade Comunitária da Região de Chapecó
+
 AATEC - Área de Agrárias, Engenharias e Tecnologias
 
 Curso de ciência da computação
@@ -96,7 +98,11 @@ RF - Requisito Funcional
 
 RNF - Requisito Não Funcional
 
-UC - Caso de uso (do inglês use case)
+SIA - *Structure Induction Algorithm*
+
+SIATEC - *Structure Induction Algorithm and Translational Equivalence Classes*
+
+UC - Caso de uso (do inglês *use case*)
 
 XML - *Extensible Markup Language*
 
@@ -324,7 +330,7 @@ Este trabalho usou o Claude, assistente de inteligência artificial (IA) generat
 
 A primeira foi a redação e a revisão do texto, em todos os capítulos: redação de versões de trechos a partir das decisões e anotações do autor, revisão de estilo e de coesão, corte de repetições e reorganização de seções. A segunda foi o apoio à pesquisa bibliográfica: busca de trabalhos relacionados e conferência da existência e dos dados de cada referência (autoria, ano, título, veículo e páginas) nas fontes originais ou em bases de indexação.
 
-A terceira foi a discussão do método e da avaliação (Capítulo 5). A ferramenta sugeriu alternativas para decisões de desenho, como a pontuação de substituição estimada no corpus e as regras de acerto da Seção 5.6.4, e fez leituras críticas do texto no papel de avaliador externo. A quarta foi a escrita dos scripts em Python que levantam os dados do corpus citados no texto, como as contagens do corpus, as frequências de intervalos, os pares de fontes do Quadro 7 e o exemplo de alinhamento do Quadro 2. Esses scripts estão versionados no repositório do trabalho, disponível em https://github.com/pedro-schabarum/motif-align. A quinta foi a produção das figuras, geradas por código com as bibliotecas matplotlib e Graphviz, e a montagem dos quadros. Por isso, a fonte de todas as figuras e quadros indica que foram elaborados pelo autor com uso de IA.
+A terceira foi a discussão do método e da avaliação (Capítulo 5). A ferramenta sugeriu alternativas para decisões de desenho, como a pontuação de substituição estimada no corpus e as regras de acerto da Seção 5.6.4, e fez leituras críticas do texto no papel de avaliador externo. A quarta foi a escrita dos scripts em Python que levantam os dados do corpus citados no texto, como as contagens do corpus, as frequências de intervalos, os pares de fontes do Quadro 7 e o exemplo de alinhamento do Quadro 2. Esses scripts estão versionados no repositório do trabalho (SCHABARUM, 2026), disponível em https://github.com/pedro-schabarum/motif-align. A quinta foi a produção das figuras, geradas por código com as bibliotecas matplotlib e Graphviz, e a montagem dos quadros. Por isso, a fonte de todas as figuras e quadros indica que foram elaborados pelo autor com uso de IA.
 
 As decisões de escopo, de método e de avaliação são do autor. Cada sugestão da ferramenta foi aceita, modificada ou descartada por ele e submetida à orientação. O conteúdo produzido com a ferramenta foi validado de três formas: leitura e revisão de todo o texto pelo autor; conferência de cada referência em fonte externa à ferramenta, sem aceitar dados bibliográficos informados apenas por ela; e reexecução dos scripts, de modo que os números citados no texto correspondem à saída deles. A responsabilidade pelo conteúdo final, inclusive por eventuais erros, é do autor.
 
@@ -418,7 +424,7 @@ Formalmente, sejam a = a₁…aₙ e b = b₁…bₘ as duas sequências, s(aᵢ
 
 |                                                                           |       |
 |---------------------------------------------------------------------------|-------|
-| *F(i, j) = máx { F(i−1, j−1) + s(aᵢ, bⱼ), F(i−1, j) − g, F(i, j−1) − g }* | Eq. 1 |
+| *F(i, j) = max { F(i−1, j−1) + s(aᵢ, bⱼ), F(i−1, j) − g, F(i, j−1) − g }* | Eq. 1 |
 
 Preenchida a matriz inteira, um processo de retrocesso (*traceback*) percorre o caminho de decisões que levou à célula final, reconstruindo o alinhamento ótimo. Por exigir que as duas sequências sejam percorridas até o fim, o algoritmo garante uma correspondência de ponta a ponta, mas essa mesma exigência é uma limitação quando apenas um trecho das sequências, e não sua totalidade, deve corresponder. A Figura 2 ilustra o preenchimento de uma célula e o caminho de retrocesso.
 
@@ -650,7 +656,8 @@ O Quadro 3 apresenta o pseudocódigo do método completo, reunindo as quatro eta
 <tr class="header">
 <th><p>Algoritmo CorrespondenciasMotivicas(A, B, θ)</p>
 <p>Entrada: A, B: partituras a quatro vozes (objetos Score do music21)</p>
-<p>θ = (k, κ, φ, γ, ρ, g, X, P, p*, ℓmin, σ) ▹ κ: baixa complexidade; σ: semente aleatória</p>
+<p>θ = (k, κ, φ, γ, ρ, g, X, P, p*, ℓmin, σ)</p>
+<p>▹ κ: baixa complexidade; σ: semente aleatória</p>
 <p>Saída: C: conjunto de correspondências rotuladas</p>
 <p>Variáveis:</p>
 <p>u, v: vozes de A e de B, sequências de eventos (p, d)</p>
@@ -667,8 +674,10 @@ O Quadro 3 apresenta o pseudocódigo do método completo, reunindo as quatro eta
 <p>5 R ← Busca(I, S, S′, θ)</p>
 <p>6 N[T] ← lista vazia, para cada T</p>
 <p>7 para t ← 1 até P faça</p>
-<p>8 Z ← Representa(t-ésima voz nula, com tipo e comprimento de v) ▹ amostra sorteada com σ</p>
-<p>9 M[T] ← maior escore de forma T em Deduplica(Busca(I, S, Z, θ)) com |a| ≥ ℓmin, ou 0</p>
+<p>8 Z ← Representa(t-ésima voz nula, com tipo e comprimento de v)</p>
+<p>▹ amostra sorteada com σ</p>
+<p>9 M[T] ← maior escore de forma T em Deduplica(Busca(I, S, Z, θ))</p>
+<p>com |a| ≥ ℓmin, ou 0</p>
 <p>10 acrescente M[T] a N[T], para cada T</p>
 <p>11 para cada a ∈ Deduplica(R) com |a| ≥ ℓmin faça</p>
 <p>12 se ValorP(a, N, P) ≤ p* então ▹ Eq. 8</p>
@@ -1039,7 +1048,7 @@ HINDEMITH, P. **Curso condensado de harmonia tradicional**: com predomínio de e
 
 HURON, D. On the role of embellishment tones in the perceptual segregation of concurrent musical parts. **Empirical Musicology Review**, v. 2, n. 4, p. 123-139, 2007.
 
-HUTCHINSON, R. **Music theory for the 21st-century classroom**. Tacoma, 2017. Disponível em: https://musictheory.pugetsound.edu/mt21c/. Acesso em: 1 nov. 2026.
+HUTCHINSON, R. **Music theory for the 21st-century classroom**. Tacoma: \[s.n.\], 2017. Disponível em: https://musictheory.pugetsound.edu/mt21c/. Acesso em: 1 nov. 2026.
 
 JANSSEN, B.; VAN KRANENBURG, P.; VOLK, A. Finding occurrences of melodic segments in folk songs employing symbolic similarity measures. **Journal of New Music Research**, v. 46, n. 2, p. 118-134, 2017.
 
@@ -1055,7 +1064,7 @@ MEREDITH, D.; LEMSTRÖM, K.; WIGGINS, G. A. Algorithms for discovering repeated 
 
 MEYER, L. B. **Emotion and meaning in music**. Chicago: University of Chicago Press, 1956.
 
-MONGEAU, M.; SANKOFF, D. Comparison of musical sequences. **Computers and the Humanities**, v. 24, p. 161-175, 1990.
+MONGEAU, M.; SANKOFF, D. Comparison of musical sequences. **Computers and the Humanities**, v. 24, n. 3, p. 161-175, 1990.
 
 NARMOUR, E. **The analysis and cognition of basic melodic structures**: the implication-realization model. Chicago: University of Chicago Press, 1990.
 
@@ -1068,6 +1077,8 @@ PEYERL, K.; BARROS, G. S. de. Sonata nº 1 para piano de Edino Krieger: análise
 PHIPSON, B.; SMYTH, G. K. Permutation p-values should never be zero: calculating exact p-values when permutations are randomly drawn. **Statistical Applications in Genetics and Molecular Biology**, v. 9, n. 1, art. 39, 2010.
 
 PRODANOV, C. C.; FREITAS, E. C. de. **Metodologia do trabalho científico**: métodos e técnicas da pesquisa e do trabalho acadêmico. 2. ed. Novo Hamburgo: Feevale, 2013.
+
+SCHABARUM, P. G. M. **motif-align**. \[S.l.\]: GitHub, 2026. Repositório de código-fonte. Disponível em: https://github.com/pedro-schabarum/motif-align. Acesso em: 9 nov. 2026.
 
 SMITH, T. F.; WATERMAN, M. S. Identification of common molecular subsequences. **Journal of Molecular Biology**, v. 147, n. 1, p. 195-197, 1981.
 
