@@ -64,9 +64,7 @@ CHAPECÓ, novembro de 2026
 
 [**QUADRO 7 -** Pares de fontes de uma mesma harmonização no corpus](#_Toc990000070)
 
-[**QUADRO 8 -** Cronograma do TCC I, de 08/2026 a 12/2026](#_Toc990000065)
-
-[**QUADRO 9 -** Cronograma do TCC II, de 02/2027 a 07/2027](#_Toc990000067)
+[**QUADRO 8 -** Cronograma do TCC II, de 02/2027 a 07/2027](#_Toc990000067)
 
 <span id="_Toc990000002" class="anchor"></span>Lista de Siglas
 
@@ -216,10 +214,6 @@ Sumário
 
 [6 CRONOGRAMA](#_Toc990000063)
 
-[6.1 Cronograma do TCC I](#_Toc990000064)
-
-[6.2 Cronograma do TCC II](#_Toc990000066)
-
 [7 ORÇAMENTO](#_Toc990000068)
 
 [Referências](#_Toc990000069)
@@ -336,7 +330,7 @@ As decisões de escopo, de método e de avaliação são do autor. Cada sugestã
 
 4.  <span id="_Toc990000012" class="anchor"></span>Estrutura do Trabalho
 
-Além desta introdução, o trabalho está organizado em seis capítulos. O Capítulo 2 revisa a fundamentação teórico-musical da variação entre versões, da noção schoenberguiana de identidade motívica à ornamentação melódica e à percepção. O Capítulo 3 apresenta os fundamentos computacionais do alinhamento de sequências, do algoritmo de Needleman-Wunsch à heurística do BLAST. O Capítulo 4 examina os trabalhos relacionados em música simbólica e posiciona a contribuição deste trabalho em relação a eles. O Capítulo 5 descreve a modelagem do protótipo que adapta a heurística *seed-and-extend* ao problema de correspondência motívica entre versões e o planejamento de sua avaliação: o corpus, os conjuntos de teste, os parâmetros e os critérios de avaliação. O Capítulo 6 apresenta o cronograma do TCC I e do TCC II, e o Capítulo 7, o orçamento.
+Além desta introdução, o trabalho está organizado em seis capítulos. O Capítulo 2 revisa a fundamentação teórico-musical da variação entre versões, da noção schoenberguiana de identidade motívica à ornamentação melódica e à percepção. O Capítulo 3 apresenta os fundamentos computacionais do alinhamento de sequências, do algoritmo de Needleman-Wunsch à heurística do BLAST. O Capítulo 4 examina os trabalhos relacionados em música simbólica e posiciona a contribuição deste trabalho em relação a eles. O Capítulo 5 descreve a modelagem do protótipo que adapta a heurística *seed-and-extend* ao problema de correspondência motívica entre versões e o planejamento de sua avaliação: o corpus, os conjuntos de teste, os parâmetros e os critérios de avaliação. O Capítulo 6 apresenta o cronograma do TCC II, e o Capítulo 7, o orçamento.
 
 2.  <span id="_Toc990000013" class="anchor"></span>Fundamentação Teórico-Musical da Variação entre Versões
 
@@ -932,7 +926,7 @@ Alguns pontos de partida orientam a calibração. Para o tamanho da semente, ado
 
 A pontuação de substituição φ não é ajustada, e sim estimada a partir das frequências de intervalos do subconjunto de calibração (Seção 5.1.3). Uma vez estimada, verifica-se que o escore esperado de um par de eventos sem relação, com os termos γ e ρ incluídos, é negativo para cada tipo de voz. Se não for, γ é reduzido até que seja. A calibração mede também o piso de detecção do método: o menor comprimento com que uma correspondência passa no filtro de significância, por forma e separadamente para trechos escalares e para trechos com saltos. Os resultados dos pares sintéticos são apresentados também por comprimento do trecho transformado, em relação a esse piso.
 
-O critério de divisão do corpus entre os dois subconjuntos será fixado no início do TCC II, e os valores definitivos dos parâmetros, ao fim da calibração (Quadro 9), sempre antes de qualquer execução sobre o subconjunto de avaliação.
+O critério de divisão do corpus entre os dois subconjuntos será fixado no início do TCC II, e os valores definitivos dos parâmetros, ao fim da calibração (Quadro 8), sempre antes de qualquer execução sobre o subconjunto de avaliação.
 
 2.  <span id="_Toc990000061" class="anchor"></span>Critérios Objetivos de Avaliação
 
@@ -966,32 +960,11 @@ A modelagem apresentada neste capítulo traduz em software o método de alinhame
 
 6.  <span id="_Toc990000063" class="anchor"></span>CRONOGRAMA
 
-Este capítulo apresenta o cronograma do trabalho em dois quadros, no formato definido pelo modelo institucional: o Quadro 8, do TCC I, de agosto a dezembro de 2026, e o Quadro 9, do TCC II, de fevereiro a julho de 2027.
+Este capítulo apresenta o cronograma do TCC II, no formato definido pelo modelo institucional. O cronograma do TCC I não é reproduzido, porque suas etapas se encerram com a entrega deste documento.
 
-1.  <span id="_Toc990000064" class="anchor"></span>Cronograma do TCC I
+O TCC II abrange a implementação do protótipo, a construção dos conjuntos de teste e a aplicação preliminar dos critérios de avaliação, etapas já delimitadas no Capítulo 5 e na Seção 1.5. O Quadro 8 distribui essas atividades de fevereiro a julho de 2027.
 
-O TCC I tem entrega prevista para 11 de novembro de 2026. Quatro reuniões de orientação foram distribuídas ao final das etapas de maior densidade de conteúdo: na primeira semana de setembro, na última de setembro, na terceira de outubro e na primeira de novembro. As atividades e seus meses de execução estão no Quadro 8.
-
-8.  <span id="_Toc990000065" class="anchor"></span>Cronograma do TCC I, de 08/2026 a 12/2026
-
-| **Projeto**                                                                | **Cronograma** |              |              |              |              |
-|----------------------------------------------------------------------------|----------------|--------------|--------------|--------------|--------------|
-| **Atividades**                                                             | **ago/2026**   | **set/2026** | **out/2026** | **nov/2026** | **dez/2026** |
-| Fundamentação teórica e trabalhos relacionados (Capítulos 2 a 4)           |                |              |              |              |              |
-| Modelagem do protótipo (Capítulo 5)                                        |                |              |              |              |              |
-| Procedimentos metodológicos e planejamento da avaliação (Seções 1.5 e 5.6) |                |              |              |              |              |
-| Cronograma e orçamento (Capítulos 6 e 7)                                   |                |              |              |              |              |
-| Revisão geral e validação com orientação                                   |                |              |              |              |              |
-| Formatação final e entrega do relatório                                    |                |              |              |              |              |
-| Apresentação do TCC I                                                      |                |              |              |              |              |
-
-Fonte: elaborado pelo autor com uso de IA (2026).
-
-1.  <span id="_Toc990000066" class="anchor"></span>Cronograma do TCC II
-
-O TCC II abrange a implementação do protótipo, a construção dos conjuntos de teste e a aplicação preliminar dos critérios de avaliação, etapas já delimitadas no Capítulo 5 e na Seção 1.5. O Quadro 9 distribui essas atividades de fevereiro a julho de 2027.
-
-9.  <span id="_Toc990000067" class="anchor"></span>Cronograma do TCC II, de 02/2027 a 07/2027
+8.  <span id="_Toc990000067" class="anchor"></span>Cronograma do TCC II, de 02/2027 a 07/2027
 
 | **Projeto**                                                | **Cronograma** |              |              |              |              |              |
 |------------------------------------------------------------|----------------|--------------|--------------|--------------|--------------|--------------|
