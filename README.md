@@ -1,117 +1,104 @@
 # motif-align
 
-Alinhamento motívico automático entre versões de uma composição musical simbólica.
+Identificação de correspondências motívicas entre versões simbólicas de obras
+musicais, com um método de alinhamento de sequências inspirado no BLAST
+(*seed-and-extend*), aplicado aos corais a quatro vozes de J. S. Bach.
 
-> TCC I — Ciência da Computação. Status atual: **prova de conceito preliminar**
-> (não é validação experimental completa — isso fica pro TCC II).
+> Repositório do TCC em Ciência da Computação (Unochapecó, 2026).
+> **Status:** o TCC I (fundamentação, método e planejamento da avaliação) foi
+> concluído; a implementação do método e a avaliação ficam para o TCC II.
+> O texto em `docs/tcc/` é a referência do método. Veja a seção
+> [Estado do código](#estado-do-código).
 
 ## O problema
 
-Ferramentas de diff de partitura já existem e funcionam bem no nível da
-**notação** — [musicdiff/Foscarin et al.](https://github.com/fosfrancesco/musicdiff)
-apontam "essa nota mudou" entre duas versões de uma peça em MusicXML.
+Ferramentas de diff de partitura, como o
+[musicdiff](https://github.com/fosfrancesco/musicdiff) (Foscarin et al., 2019),
+comparam duas versões de uma peça no nível do **símbolo** e apontam inserções,
+remoções e substituições de notas. Os métodos de descoberta de padrões, como a
+família SIATEC e o alinhamento local de Zhu et al. (2026), procuram motivos
+repetidos **dentro de uma mesma obra**.
 
-Não há, no levantamento feito até agora, uma ferramenta que compare duas
-versões no nível **motívico/semântico**: apontar que um motivo específico foi
-*transposto*, *invertido*, *retrogradado* (ou retrogradado-invertido) entre
-as versões — distinguindo essa relação genuína de uma coincidência espúria de
-intervalo.
+Este trabalho trata de outro problema: alinhar **duas versões** de uma
+composição no nível **motívico**. O objetivo é produzir um mapeamento
+segmentado das correspondências entre elas, rotulado pelo tipo de
+transformação, que tolere transposição, variação rítmica e inserção ou
+remoção de notas (e, como generalidade do método, inversão e retrogradação).
 
-## Abordagem
+## Método (resumo do Capítulo 5 do TCC)
 
-1. **Representação por intervalo cromático** — invariante a transposição por
-   construção (duas execuções da mesma melodia em tons diferentes geram a
-   mesma sequência de intervalos).
-2. **Geração de candidatos por janela deslizante** sobre a versão A.
-3. **Alinhamento por semente-e-extensão** (*seed-and-extend*, inspirado no
-   [BLAST](https://blast.ncbi.nlm.nih.gov/)): acha uma âncora curta e
-   confiável contra a versão B, depois estende nota por nota em cada direção
-   enquanto a transformação continuar batendo, parando por critério X-drop
-   (recuando até o pico de score, não até onde a extensão parou).
-4. **Seleção gulosa** dos alinhamentos de maior score, removendo sobreposições.
+1. **Representação simbólica.** Cada voz vira uma sequência de triplas
+   (δ, c, r): intervalo **diatônico**, intervalo cromático em semitons e
+   proporção rítmica entre eventos consecutivos. A representação por
+   intervalos é invariante à transposição por construção.
+2. **Sementes.** Sementes de tamanho k passam por um filtro de baixa
+   complexidade e são indexadas nas quatro formas: original, inversão,
+   retrogradação e retrogradação da inversão.
+3. **Busca e extensão com *gaps*.** A partir de cada coincidência com uma
+   semente, o alinhamento é estendido nas duas direções, com penalidade de
+   *gap* linear e parada por X-drop (como no Gapped BLAST). A pontuação de
+   substituição φ entre intervalos diatônicos é do tipo *log-odds*,
+   estimada no corpus, à maneira das matrizes BLOSUM.
+4. **Filtragem.** Alinhamentos da mesma forma que se sobrepõem são reduzidos
+   a um. Os que restam precisam atingir um comprimento mínimo e passar num
+   teste de significância empírica por permutação, com modelo nulo separado
+   por forma.
+5. **Rotulagem.** Cada correspondência é segmentada e rotulada pelo tipo de
+   transformação, com base nas alturas absolutas dos eventos alinhados.
 
-Reaproveita a base técnica do TCC I anterior (representação por
-intervalo/contorno, janela deslizante, [music21](https://web.mit.edu/music21/)).
+O método compara as 16 combinações de vozes entre as duas versões.
 
-## Objetivo de pesquisa
+## Avaliação planejada (TCC II)
 
-- **Principal:** distinguir correspondências motívicas genuínas de
-  coincidências espúrias de intervalo entre duas versões de uma peça, com
-  precisão/recall mensuráveis.
-- **Secundário (descritivo):** dado um alinhamento já validado, classificar
-  o tipo de transformação sofrida (transposição, inversão, retrogradação,
-  retrogradação-inversão).
+- **Corpus:** corais a quatro vozes de Bach distribuídos com o
+  [music21](https://web.mit.edu/music21/), em MusicXML.
+- **Três conjuntos de teste:** pares sintéticos com gabarito completo;
+  harmonizações diferentes de uma mesma melodia, com gabarito parcial pelo
+  soprano (ex.: o coral da Paixão, BWV 244); e pares de fontes de uma mesma
+  harmonização no corpus (ex.: as versões de Weimar e de Leipzig do BWV 18.5).
+- **Critérios fixados a priori:** regra de acerto por sobreposição e
+  calibração dos parâmetros num subconjunto do corpus separado do usado na
+  avaliação.
+- **Referências de comparação:** o alinhamento exato de Smith-Waterman e uma
+  referência simples de transposição global.
 
-Separar esses dois objetivos foi uma correção importante de escopo — a
-versão anterior do projeto misturava os dois num só problema de pesquisa.
+## Estado do código
 
-## Estrutura
+- `scripts/` reúne os scripts que reproduzem os números citados no texto do
+  TCC. Cada script indica no cabeçalho a seção ou o quadro que reproduz:
 
-```
-src/motif_align/core.py     # representação, transformações, seed-and-extend
-tests/test_synthetic.py     # dados sintéticos, transformação conhecida
-tests/test_real_piece.py    # corpus real (coral de Bach, BWV 66.6, via music21)
-scripts/comparar_versoes.py # CLI: compara duas versões em MusicXML
-```
+  | Script | O que reproduz |
+  |---|---|
+  | `frequencias_intervalos.py`, `intervalos_por_voz.py` | Frequências de intervalos diatônicos no corpus (Seção 5.1.3) |
+  | `quadro2.py`, `melhor_alinhamento.py` | Quadro 2 e alinhamentos do par BWV 244.15 × BWV 244.62 (Seção 5.1.4) |
+  | `nulo.py`, `ae.py` | Comparação de modelos nulos para o teste de significância (Seção 5.1.4) |
+  | `levantamento_corpus.py` | Contagens do corpus (Seções 5.6.1 e 5.6.2) |
+  | `pares_fontes.py` | Pares de fontes de uma mesma harmonização (Seção 5.6.2, Quadro 7) |
+  | `comparar_bwv18_5.py` | Diferenças entre as versões de Weimar e de Leipzig do BWV 18.5 (Seção 5.6.2) |
+
+- `src/motif_align/core.py`, `tests/` e `scripts/comparar_versoes.py` são um
+  **protótipo exploratório anterior ao desenho do TCC I**. Ele ainda usa
+  intervalos cromáticos, janela deslizante e seleção gulosa, e **não
+  implementa o método descrito no texto**. A implementação do método é o
+  objetivo *f* do TCC, previsto para o TCC II.
 
 ## Rodando
 
 ```bash
 pip install -r requirements.txt
+
+# scripts que reproduzem os números do TCC
+python scripts/levantamento_corpus.py
+python scripts/quadro2.py
+
+# testes do protótipo exploratório
 pytest tests/ -v
-
-python scripts/comparar_versoes.py versao_a.musicxml versao_b.musicxml
 ```
-
-## O que já foi testado
-
-- **Dados sintéticos:** motivo-base com transformação conhecida embutido em
-  ruído — confirma que cada transformação clássica é reconhecida
-  corretamente, que a extensão amplia a fronteira além da semente mínima, e
-  que ruído puro não gera alinhamentos de alta confiança (controle de falso
-  positivo).
-- **Material real:** linha de soprano do coral de Bach BWV 66.6 (corpus
-  embutido do music21) — confirma que a ideia se sustenta com material real,
-  não só sintético, incluindo o caso de uma transformação conhecida
-  (inversão) embutida em meio ao material original.
-- **Dois bugs reais encontrados e corrigidos durante a reconstrução/teste,
-  documentados aqui como parte do processo, não escondidos:**
-  1. Definição matemática invertida de retrogradação vs.
-     retrogradação-inversão (corrigida a partir da derivação formal a partir
-     da sequência de notas — ver comentários em `core.py`).
-  2. Score desatualizado no *seed-and-extend*: a extensão avançava até o
-     limite do X-drop mas reportava o score de antes da extensão passar da
-     região realmente correspondente, em vez de recuar até o pico real.
-
-## Limitações conhecidas / próximos passos (TCC II)
-
-- **Escopo monofônico** — uma voz por vez; não trata polifonia/acordes.
-- **Sensibilidade ao tamanho da janela (`min_len`/`max_len`):** o tamanho
-  mínimo de janela considerado — parâmetro que parece bobo à primeira vista —
-  afeta diretamente quais alinhamentos "vencem" na seleção gulosa quando há
-  empates de score (ex.: dois trechos idênticos podem gerar tanto um
-  alinhamento grande cobrindo quase toda a peça quanto vários alinhamentos
-  pequenos, dependendo da ordem de geração dos candidatos). Isso já apareceu
-  nos testes com dados sintéticos e com material real — é decisão
-  metodológica central, não só um parâmetro de ajuste fino, e precisa de
-  tratamento formal na validação completa.
-- **Sem métricas formais de precisão/recall ainda** — os testes atuais
-  verificam comportamento esperado (achado correto, tipo correto, sem falso
-  positivo óbvio), mas não uma validação estatística sobre corpus rotulado.
-  Isso é o objetivo central do TCC II.
-- **Baseline não comparado ainda** — falta comparação sistemática contra
-  diff de notação pura (musicdiff) pra provar o ganho real do nível motívico.
-
-## Contexto acadêmico
-
-TCC I anterior reprovado por: fundamentação teórica rasa, trabalhos
-relacionados fracos, corpus enviesado (autoral), avaliação sem critério
-objetivo, contribuição computacional trivial. Este projeto reaproveita a
-base técnica válida do trabalho anterior, mas resolve um problema diferente
-e mais bem delimitado — com o cuidado explícito de não repetir os mesmos
-erros de escopo e avaliação.
 
 ## Texto do TCC
 
-- `docs/tcc/TCC-I.docx`: versão atual do texto (formato de entrega). O histórico de versões fica no git.
-- `docs/tcc/TCC-I.md`: exportação em Markdown, só para acompanhar no diff o que mudou entre versões. Regenerar com `bash scripts/exportar_texto.sh` antes de cada commit do .docx.
+- `docs/tcc/TCC-I.docx`: versão atual do texto (formato de entrega). O
+  histórico de versões fica no git.
+- `docs/tcc/TCC-I.md`: exportação em Markdown, só para acompanhar no diff o
+  que mudou entre versões. Regenerar com `bash scripts/exportar_texto.sh`
+  antes de cada commit do .docx.

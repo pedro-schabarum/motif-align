@@ -8,7 +8,7 @@ Uso:
 Os arquivos bwv18.5-w (Weimar) e bwv18.5-lz (Leipzig) registram a mesma
 harmonização a um tom de distância. O script transpõe a versão de Leipzig
 dois semitons abaixo e lista, voz a voz, as diferenças de altura e duração
-em relação à versão de Weimar (TCC, Seção 6.3).
+em relação à versão de Weimar (TCC, Seção 5.6.2).
 """
 
 import difflib
