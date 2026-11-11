@@ -128,9 +128,9 @@ Sumário
 
 [1.5 Procedimentos Metodológicos](#_Toc990000011)
 
-[1.6 Uso de Ferramentas de Inteligência Artificial](#_Toc990000099)
+[1.5.1 Declaração do uso de IA](#_Toc990000099)
 
-[1.7 Estrutura do Trabalho](#_Toc990000012)
+[1.6 Estrutura do Trabalho](#_Toc990000012)
 
 [2 Fundamentação Teórico-Musical da Variação entre Versões](#_Toc990000013)
 
@@ -318,17 +318,17 @@ O trabalho é executado em oito etapas, que desdobram os sete objetivos específ
 
 **Etapa 8 – Avaliação preliminar e análise (objetivo g; TCC II).** Execução do método e das duas referências sobre o subconjunto de avaliação, cálculo dos critérios da Seção 5.6.4, no conjunto e por tipo de transformação, e análise dos erros, com atenção às correspondências não encontradas e às espúrias, para identificar limitações do método.
 
-3.  <span id="_Toc990000099" class="anchor"></span>Uso de Ferramentas de Inteligência Artificial
+1.  <span id="_Toc990000099" class="anchor"></span>Declaração do uso de IA
 
-Este trabalho usou o Claude, assistente de inteligência artificial (IA) generativa da Anthropic (ANTHROPIC, 2026), acessado pela plataforma claude.ai durante o desenvolvimento do TCC I. Nenhuma outra ferramenta de IA generativa foi usada. O uso se deu em cinco atividades, descritas a seguir com os pontos do texto em que se aplicam.
+Este trabalho usou o Claude, assistente de inteligência artificial (IA) generativa da Anthropic (ANTHROPIC, 2026), acessado pela plataforma claude.ai durante o desenvolvimento do TCC I, com os modelos disponíveis na plataforma no período, entre eles o Claude Opus 5.5. Nenhuma outra ferramenta de IA generativa foi usada. O uso se deu em cinco atividades, descritas a seguir com os pontos do texto em que se aplicam.
 
 A primeira foi a redação e a revisão do texto, em todos os capítulos: redação de versões de trechos a partir das decisões e anotações do autor, revisão de estilo e de coesão, corte de repetições e reorganização de seções. A segunda foi o apoio à pesquisa bibliográfica: busca de trabalhos relacionados e conferência da existência e dos dados de cada referência (autoria, ano, título, veículo e páginas) nas fontes originais ou em bases de indexação.
 
 A terceira foi a discussão do método e da avaliação (Capítulo 5). A ferramenta sugeriu alternativas para decisões de desenho, como a pontuação de substituição estimada no corpus e as regras de acerto da Seção 5.6.4, e fez leituras críticas do texto no papel de avaliador externo. A quarta foi a escrita dos scripts em Python que levantam os dados do corpus citados no texto, como as contagens do corpus, as frequências de intervalos, os pares de fontes do Quadro 7 e o exemplo de alinhamento do Quadro 2. Esses scripts estão versionados no repositório do trabalho (SCHABARUM, 2026), disponível em https://github.com/pedro-schabarum/motif-align. A quinta foi a produção das figuras, geradas por código com as bibliotecas matplotlib e Graphviz, e a montagem dos quadros. Por isso, a fonte de todas as figuras e quadros indica que foram elaborados pelo autor com uso de IA.
 
-As decisões de escopo, de método e de avaliação são do autor. Cada sugestão da ferramenta foi aceita, modificada ou descartada por ele e submetida à orientação. O conteúdo produzido com a ferramenta foi validado de três formas: leitura e revisão de todo o texto pelo autor; conferência de cada referência em fonte externa à ferramenta, sem aceitar dados bibliográficos informados apenas por ela; e reexecução dos scripts, de modo que os números citados no texto correspondem à saída deles. A responsabilidade pelo conteúdo final, inclusive por eventuais erros, é do autor.
+As decisões de escopo, de método e de avaliação são do autor. Cada sugestão da ferramenta foi aceita, modificada ou descartada por ele, e as principais decisões foram submetidas à orientação. O conteúdo produzido com a ferramenta foi validado de três formas: leitura e revisão de todo o texto pelo autor; conferência de cada referência em fonte externa à ferramenta, sem aceitar dados bibliográficos informados apenas por ela; e reexecução dos scripts, de modo que os números citados no texto correspondem à saída deles. A responsabilidade pelo conteúdo final, inclusive por eventuais erros, é do autor.
 
-4.  <span id="_Toc990000012" class="anchor"></span>Estrutura do Trabalho
+3.  <span id="_Toc990000012" class="anchor"></span>Estrutura do Trabalho
 
 Além desta introdução, o trabalho está organizado em seis capítulos. O Capítulo 2 revisa a fundamentação teórico-musical da variação entre versões, da noção schoenberguiana de identidade motívica à ornamentação melódica e à percepção. O Capítulo 3 apresenta os fundamentos computacionais do alinhamento de sequências, do algoritmo de Needleman-Wunsch à heurística do BLAST. O Capítulo 4 examina os trabalhos relacionados em música simbólica e posiciona a contribuição deste trabalho em relação a eles. O Capítulo 5 descreve a modelagem do protótipo que adapta a heurística *seed-and-extend* ao problema de correspondência motívica entre versões e o planejamento de sua avaliação: o corpus, os conjuntos de teste, os parâmetros e os critérios de avaliação. O Capítulo 6 apresenta o cronograma do TCC II, e o Capítulo 7, o orçamento.
 
